@@ -1,0 +1,63 @@
+"""测试: 重排候选池优化 RerankOptimizer (Top-60 候选收窄为 Top-25 精排)."""
+from __future__ import annotations
+
+from app.rag.reranker import CrossEncoderReranker, RerankOptimizer
+
+
+class _ScoringReranker(CrossEncoderReranker):
+    """以确定性打分顶替 CrossEncoder, 不加载模型."""
+
+    def __init__(self, scores: list[float]):
+        super().__init__(model_name="fake")
+        self._scores = scores
+
+    def _ensure(self):
+        return self
+
+    def rerank(self, query, candidates, top_k=5):
+        out = []
+        for i, c in enumerate(candidates):
+            c2 = dict(c)
+            c2["rerank_score"] = self._scores[i] if i < len(self._scores) else 0.0
+            out.append(c2)
+        out.sort(key=lambda x: x["rerank_score"], reverse=True)
+        return out[:top_k]
+
+
+def _cands(n: int, start_score: float = 1.0):
+    return [
+        {"id": f"c{i}", "document": f"doc {i}", "rrf_score": start_score - i * 0.01}
+        for i in range(n)
+    ]
+
+
+def test_optimizer_truncates_pool_before_rerank():
+    # 候选共 100 个, 但 CrossEncoder 应只看到 pool=60 个.
+    cands = _cands(100)
+    seen = []
+
+    class _Tracked(_ScoringReranker):
+        def rerank(self, query, candidates, top_k=5):
+            seen.extend(c["id"] for c in candidates)
+            return super().rerank(query, candidates, top_k=top_k)
+
+    opt = RerankOptimizer(reranker=_Tracked([0.9] * 60))
+    opt.optimize("q", cands, pool=60, top_n=25)
+    # 送入 Cross-Encoder 的输入被截到 60
+    assert len(seen) == 60
+    assert "c60" not in seen
+
+
+def test_optimizer_returns_top_n():
+    cands = _cands(80)
+    scores = [0.1, 0.9, 0.5] + [0.0] * 77  # 预期 c1 居首
+    opt = RerankOptimizer(reranker=_ScoringReranker(scores))
+    out = opt.optimize("q", cands, pool=60, top_n=25)
+    assert len(out) == 25
+    # 得分最高者是 c1 (score 0.9)
+    assert out[0]["id"] == "c1"
+
+
+def test_optimizer_empty_candidates():
+    opt = RerankOptimizer(reranker=_ScoringReranker([]))
+    assert opt.optimize("q", [], pool=50, top_n=20) == []

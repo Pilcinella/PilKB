@@ -1,0 +1,33 @@
+# VCS / IDE
+.git
+.idea
+.vscode
+
+# Python 运行时产物
+.venv
+venv
+__pycache__
+**/__pycache__
+*.pyc
+.pytest_cache
+.coverage
+htmlcov
+
+# 运行时数据(向量库/BM25 索引/上传文件/SQLite)
+data
+outputs
+
+# 前端(独立构建, 不进后端镜像)
+frontend
+
+# 测试(生产镜像不需要)
+tests
+
+# 密钥与环境配置
+.env
+.env.*
+!.env.example
+
+# 运行时日志/套接字
+uvicorn.*
+*.log
