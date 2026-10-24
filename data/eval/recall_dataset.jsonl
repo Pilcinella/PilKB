@@ -1,0 +1,130 @@
+{"question": "标准版的账号单价是多少？", "reference_context": ["标准版：480 元 / 账号 / 年"]}
+{"question": "专业版的单价是多少？", "reference_context": ["专业版：1280 元 / 账号 / 年"]}
+{"question": "企业版一个账号一年多少钱？", "reference_context": ["企业版：3680 元 / 账号 / 年"]}
+{"question": "买 11 个专业版账号打几折？", "reference_context": ["11 - 20 个 | 9 折"]}
+{"question": "买 5 个账号有折扣吗？", "reference_context": ["5 - 10 个 | 95 折"]}
+{"question": "促销折扣能和渠道返点一起用吗？", "reference_context": ["促销折扣与阶梯折扣可叠加，但与渠道返点不可同时享受。"]}
+{"question": "教育机构买有优惠吗？", "reference_context": ["教育机构与非营利组织可申请专项折扣，统一为原价的 7 折，且不与其他折扣叠加。"]}
+{"question": "一次买 100 个以上账号怎么定价？", "reference_context": ["100 个以上 | 需走商务议价流程"]}
+{"question": "专业版每月 Agent 调用上限是多少？", "reference_context": ["每月 Agent 调用上限为 1 万次"]}
+{"question": "标准版有哪些核心能力？", "reference_context": ["提供文档上传、全文检索、基础问答三项核心能力"]}
+{"question": "哪条产品线支持私有化部署？", "reference_context": ["只有企业版提供私有化部署。"]}
+{"question": "专业版的保修期是多久？", "reference_context": ["专业版：自购买之日起 2 年免费保修"]}
+{"question": "企业版保修几年？", "reference_context": ["企业版：自购买之日起 3 年免费保修"]}
+{"question": "保修期从哪天开始算？", "reference_context": ["保修期自订单支付完成之日起算，而非账号激活之日。"]}
+{"question": "人为损坏的修复怎么收费？", "reference_context": ["标准为 800 元 / 人时，修复前需客户书面确认。"]}
+{"question": "企业版可以无理由退货吗？", "reference_context": ["企业版：因涉及私有化部署与实施成本，不适用无理由退货。"]}
+{"question": "企业版多少天内可以因质量问题退款？", "reference_context": ["可在 30 天内因质量问题申请更换部署方案或全额退款。"]}
+{"question": "延保服务怎么收费？", "reference_context": ["延保价格为原合同金额的 15% / 年。"]}
+{"question": "数据删除后还能恢复吗？", "reference_context": ["在回收站保留 7 天，7 天后不可恢复。"]}
+{"question": "三线城市配送要多久？", "reference_context": ["三线城市：72 小时内送达"]}
+{"question": "新疆的配送时效是多久？", "reference_context": ["偏远地区（新疆、西藏、内蒙古部分地区、青海）：3 - 5 个工作日"]}
+{"question": "企业版物流有什么优待？", "reference_context": ["企业版客户享有专享物流通道，在上述时效基础上再缩短 1 个工作日，且免收物流费用。"]}
+{"question": "免运费的门槛是多少？", "reference_context": ["单笔订单满 2000 元免运费。"]}
+{"question": "信用卡能分期吗？", "reference_context": ["银联信用卡（支持分期，3 期免息）"]}
+{"question": "企业月结的账期是多少天？", "reference_context": ["月结账期为 30 天"]}
+{"question": "月结逾期会收滞纳金吗？", "reference_context": ["从逾期第 8 天起按日万分之五计收滞纳金，并暂停服务直至结清。"]}
+{"question": "发票需要多久内申请？", "reference_context": ["发票需在订单完成后 30 天内申请开具，逾期不再补开。"]}
+{"question": "发票内容可以按客户要求改吗？", "reference_context": ["不支持按客户要求变更品名。"]}
+{"question": "发票丢了重开要手续费吗？", "reference_context": ["按发票金额的 1% 收取手续费。"]}
+{"question": "P0 故障多久响应？", "reference_context": ["响应 15 分钟，解决 4 小时。7×24 小时受理。"]}
+{"question": "P2 问题的解决时限是多久？", "reference_context": ["响应 4 小时，解决 2 个工作日。工作日 9:00 - 18:00 受理。"]}
+{"question": "哪些版本能享受 7×24 小时支持？", "reference_context": ["只有企业版客户享有 P0 与 P1 的 7×24 受理"]}
+{"question": "SLA 没达到怎么补偿？", "reference_context": ["P0 每超时 1 小时补偿月度服务费的 5%，单次最高补偿 50%。"]}
+{"question": "技术支持的热线电话是多少？", "reference_context": ["服务热线 400-800-1234"]}
+{"question": "金牌伙伴的返点比例是多少？", "reference_context": ["金牌伙伴：年度承诺 200 万元以上，返点 15%"]}
+{"question": "银牌伙伴要承诺多少年度金额？", "reference_context": ["银牌伙伴：年度承诺 50 万元以上，返点 12%"]}
+{"question": "渠道商机保护期多久？", "reference_context": ["伙伴报备的商机享有 90 天保护期"]}
+{"question": "渠道返点什么时候发放？", "reference_context": ["在客户完成首年付款后结算，次年一月统一发放。"]}
+{"question": "在北京出差住宿标准是多少？", "reference_context": ["一线城市 600 元 / 晚"]}
+{"question": "出差的餐补标准是多少？", "reference_context": ["餐补标准为出差期间每人每天 120 元"]}
+{"question": "年假天数是怎么规定的？", "reference_context": ["入职满 1 年享 5 天，满 3 年享 10 天，满 5 年享 15 天，满 10 年享 20 天。"]}
+{"question": "病假期间工资怎么发？", "reference_context": ["病假期间工资按 80% 发放"]}
+{"question": "加班折算的调休有有效期吗？", "reference_context": ["调休需在 3 个月内使用完毕，过期作废。"]}
+{"question": "采购 10 万元需要谁审批？", "reference_context": ["50000 - 200000 元：财务总监审批"]}
+{"question": "内推一个专家岗位奖励多少？", "reference_context": ["普通岗位 3000 元，高级岗位 8000 元，专家岗位 15000 元。"]}
+{"question": "试用期是多久？", "reference_context": ["试用期为 3 个月，试用期薪资为转正后的 90%。"]}
+{"question": "系统密码多久要换一次？", "reference_context": ["每 90 天更换一次。"]}
+{"question": "L3 机密数据能用外部大模型处理吗？", "reference_context": ["禁止上传至任何外部服务，包括公共大模型 API。"]}
+{"question": "SaaS 版的备份保留多少天？", "reference_context": ["备份保留 30 天。"]}
+{"question": "灾备的 RTO 是多少？", "reference_context": ["RPO 为 15 分钟，RTO 为 2 小时。"]}
+{"question": "超过 API 限流会返回什么？", "reference_context": ["超出限流返回 429 状态码"]}
+{"question": "专业版 API 单日调用上限是多少？", "reference_context": ["单日上限 20 万次"]}
+{"question": "系统升级一般安排在什么时间？", "reference_context": ["升级窗口为每周三 02:00 - 04:00。"]}
+{"question": "数据恢复需要多长时间？", "reference_context": ["恢复操作在 4 小时内完成"]}
+{"question": "员工离职后知识库里的文档归谁？", "reference_context": ["所有权转移至直属上级。"]}
+{"question": "标准版账号数量买 3 个有折扣吗？", "reference_context": ["1 - 4 个 | 无折扣，按原价"]}
+{"question": "钻石伙伴的返点是多少？", "reference_context": ["钻石伙伴：年度承诺 500 万元以上，返点 18%"]}
+{"question": "异地调动有搬家补贴吗？", "reference_context": []}
+{"question": "支持货到付款吗？", "reference_context": []}
+{"question": "公司在海外有数据中心吗？", "reference_context": []}
+{"question": "股票期权是怎么发放的？", "reference_context": []}
+{"question": "有没有员工食堂？", "reference_context": []}
+{"question": "PilKB A87 Pro 关灯用蓝牙模式续航能有多久？", "reference_context": ["关闭灯光（蓝牙模式）最长约 200 小时"]}
+{"question": "A87 Pro 的电池容量有多大？", "reference_context": ["4000 mAh 锂聚合物，3.7 V，14.8 Wh"]}
+{"question": "A87 Pro 蓝牙最多能同时连几台设备？", "reference_context": ["蓝牙 5.1 无线连接（最多 3 台设备）"]}
+{"question": "A87 Pro 蓝牙模式的轮询率是多少？", "reference_context": ["有线 1000 Hz / 2.4G 1000 Hz / 蓝牙 125 Hz"]}
+{"question": "A87 Pro 的 OLED 屏幕分辨率是多少？", "reference_context": ["128 × 32 OLED，白色，位于右上角旋钮左侧"]}
+{"question": "怎么删除 A87 Pro 已配对的蓝牙记录？", "reference_context": ["蓝灯快闪转长亮后熄灭，该通道配对信息被清除"]}
+{"question": "A87 Pro 的 2.4G 接收器丢了换新的，怎么重新对码？", "reference_context": ["若接收器与键盘失去配对（例如更换了接收器），请执行重新对码", "绿灯常亮 2 秒后熄灭表示对码成功"]}
+{"question": "A87 Pro 怎么从 Windows 布局切到 Mac 布局？", "reference_context": ["在 Win 布局与 Mac 布局之间切换，OLED 会显示当前布局"]}
+{"question": "A87 Pro 怎么查看剩余电量？", "reference_context": ["精确查看：驱动软件右下角显示精确电量（±2%）", "电量低于 10% | 空格键红灯每 5 分钟慢闪一次"]}
+{"question": "A87 Pro 充满一次电需要多久？", "reference_context": ["约 4 小时（5V/1A 适配器，关机充电）"]}
+{"question": "A87 Pro 的尺寸和重量分别是多少？", "reference_context": ["358 mm × 137 mm × 38 mm（长 × 宽 × 高，含键帽与脚撑收起状态）", "净重 | 约 1050 g（含电池）"]}
+{"question": "A87 Pro 的山茶红轴触发压力是多少克？", "reference_context": ["触发压力 | 45 ± 5 gf | 55 ± 5 gf | 50 ± 5 gf | 45 ± 5 gf"]}
+{"question": "A87 Pro 的热插拔轴座可以插拔多少次？", "reference_context": ["轴座额定插拔次数：约 200 次"]}
+{"question": "A87 Pro 能用别家品牌的 MX 轴吗？", "reference_context": ["兼容 MX 结构轴体（Cherry MX、Gateron、TTC、Kailh 等主流三脚 / 五脚轴）"]}
+{"question": "A87 Pro 能装静电容轴体吗？", "reference_context": ["不兼容 Choc 低轴（巧克力轴）与静电容轴体"]}
+{"question": "A87 Pro 插三脚轴会旷量吗，怎么处理？", "reference_context": ["三脚轴的塑料定位脚与五脚轴座存在旷量", "三脚轴建议加装转接垫片"]}
+{"question": "A87 Pro 曜石版标配的静音轴是什么轴？", "reference_context": ["黑色 PCB，配雪狐静音轴"]}
+{"question": "A87 Pro 怎么进入板载宏录制模式？", "reference_context": ["进入宏录制模式，OLED 显示 `REC`，全部灯光转为红色微亮"]}
+{"question": "A87 Pro 不装驱动也能录制宏吗？", "reference_context": ["键盘支持在**无驱动**环境下录制并回放宏"]}
+{"question": "A87 Pro 板载录制的宏最长能录多少步？", "reference_context": ["依次按下要录制的按键序列（最多 64 步，支持修饰键组合，自动记录按键间隔）"]}
+{"question": "A87 Pro 的全键盘游戏模式怎么开？开启后有什么变化？", "reference_context": ["进入 / 退出全键盘游戏模式（Win 锁定 + 休眠禁用 + 报文合并关闭）", "蓝牙模式自动开启\"高速报文模式\"，轮询率由 125 Hz 提升至 166 Hz"]}
+{"question": "A87 Pro 打字时总误触 Win 键，怎么把它锁掉？", "reference_context": ["锁定 / 解锁左 Win 键（锁定时 Win 键灯呈红色呼吸）", "Windows 键失效，防止误触弹回桌面"]}
+{"question": "A87 Pro 自带多少种预设灯效？", "reference_context": ["全键 RGB，南向灯位，20 种预设灯效 + 逐键自定义"]}
+{"question": "A87 Pro 的 RGB 亮度总共有几级？", "reference_context": ["亮度 | 0 – 8 级（0 为关闭）", "亮度 +1（共 8 级）"]}
+{"question": "A87 Pro 出厂默认的灯效模式和亮度是什么？", "reference_context": ["灯效模式 | 03（渐变循环 / 彩虹）", "亮度 | 4 级（共 8 级）"]}
+{"question": "给 A87 Pro 刷固件前有哪些注意事项？", "reference_context": ["使用 USB-C 线将键盘与电脑**有线连接**（无线模式无法升级固件）", "确认键盘电量 ≥ 30%（低电量下升级有变砖风险）"]}
+{"question": "A87 Pro 固件升级中断变砖了怎么救？", "reference_context": ["若升级中断导致键盘无法启动（OLED 不亮、电脑不识别），请执行强制恢复", "插入 USB-C 线，5 秒后释放（键盘进入 Bootloader 模式"]}
+{"question": "A87 Pro 整机和电池分别保修多久？", "reference_context": ["整机（PCB、主控、结构件） | 24 个月", "电池 | 12 个月"]}
+{"question": "A87 Pro 自己换轴把轴座拔坏了还保修吗？", "reference_context": ["热插拔操作不当造成的轴座损坏（轴座本身材料缺陷除外）"]}
+{"question": "A87 Pro 的售后热线电话是多少？", "reference_context": ["售后热线 | 400-XXX-XXXX"]}
+{"question": "A87 Pro 的保修期从哪一天开始算？", "reference_context": ["保修起算以发票日期优先；无法提供发票时，售后系统按序列号生产日期 + 30 天计算（17.1 节）。"]}
+{"question": "A87 Pro 的序列号贴在哪里？", "reference_context": ["序列号位于背面脚撑内侧标签，格式 `A87P-YYWW-XXXXX`"]}
+{"question": "水洒进 A87 Pro 键盘里该怎么处理？", "reference_context": ["若液体不慎泼入，请立即断开有线连接 / 关闭无线电源开关，倒置键盘沥干液体，自然阴干至少 48 小时后再尝试通电。"]}
+{"question": "A87 Pro 能用手机快充充电头充电吗？", "reference_context": ["仅可使用输出规格为 5V/0.5A–2A 的标准 USB 电源适配器或电脑 USB 端口为键盘充电", "严禁使用输出电压超过 5.5V 的电源（例如快充协议诱骗器）为键盘充电"]}
+{"question": "A87 Pro 多久不操作会自动休眠？", "reference_context": ["休眠策略 | 无操作 5 分钟进入浅休眠"]}
+{"question": "怎么设置 A87 Pro 永不休眠？", "reference_context": ["深度休眠 | 15 / 30 / 60 / 120 分钟 / 从不 | 深度休眠延时（从不 = 常开，将显著耗电）"]}
+{"question": "A87 Pro 怎么在笔记本和台式机之间快速切换？", "reference_context": ["三种模式可同时保持连接（例如：有线接台式机、蓝牙接笔记本、2.4G 接另一台设备）", "笔记本走蓝牙 CH1，台式机插 2.4G 接收器"]}
+{"question": "A87 Pro 蓝牙模式下多键同按为什么最多只识别 6 个？", "reference_context": ["有线 / 2.4G 模式应显示 87（全键），蓝牙模式因 HID 协议限制显示 6，属正常现象"]}
+{"question": "A87 Pro 蓝牙打字偶尔丢字正常吗？", "reference_context": ["蓝牙 HID 协议在 125 Hz 轮询与低功耗调度下，快速连续输入时可能丢失按键"]}
+{"question": "A87 Pro 的键帽是什么材质，容易打油吗？", "reference_context": ["PBT 热升华，OEM 高度，1.4 mm 壁厚", "PBT 键帽抗打油性远优于 ABS，正常手汗使用 3–5 年无肉眼可见打油"]}
+{"question": "A87 Pro 的键帽脏了怎么清洗？", "reference_context": ["将键帽放入温水中，加入少量中性洗洁精，浸泡 15 分钟", "彻底晾干至少 12 小时"]}
+{"question": "A87 Pro 拔轴换轴时有什么注意事项？", "reference_context": ["拔轴务必垂直发力，倾斜拔出可能损坏轴座卡扣；轴座损坏不在保修范围内", "将新轴体对准轴座（注意方向：LED 槽朝向键盘前方即\"南向\"），垂直均匀按下"]}
+{"question": "A87 Pro 最多能保存几套独立配置？", "reference_context": ["4 组板载配置（按键映射 + 宏 + 灯效）脱机可用", "所有配置写入键盘闪存，断开驱动后仍可在其它设备上完整使用"]}
+{"question": "A87 Pro 驱动的云同步功能安全吗？", "reference_context": ["云同步使用端侧 AES-256 加密后上传，PilKB 服务器无法解密配置内容"]}
+{"question": "A87 Pro 兼容 Mac 电脑吗？", "reference_context": ["在 Win 布局与 Mac 布局之间切换，OLED 会显示当前布局", "Mac mini M2 | macOS 14 Sonoma | 通过"]}
+{"question": "A87 Pro 在 Linux 系统下能用吗？", "reference_context": ["键盘在 Linux 下以标准 USB HID / 蓝牙 HID 设备枚举，无需驱动即可使用", "Compose 键默认未映射，可在驱动中（Windows/macOS 下设置，配置保存在板载）将右 Menu 改为 Compose"]}
+{"question": "A87 Pro 可以连接 iPad 使用吗？", "reference_context": ["推荐蓝牙模式；如平板支持 OTG，也可用 2.4G 接收器（iPad 需 USB-C 口且系统 iPadOS 13+）。"]}
+{"question": "A87 Pro 在电脑进 BIOS 时能正常打字吗？", "reference_context": ["键盘的 Interface 0 支持 HID Boot Protocol，BIOS / 安全模式 / 系统安装界面下基础键入可用"]}
+{"question": "A87 Pro 长按恢复出厂会把蓝牙配对也清掉吗？", "reference_context": ["不会，只重置按键配置与层设置。"]}
+{"question": "A87 Pro 的 2.4G 接收器丢了可以单独补购吗？", "reference_context": ["可以，联系售后购买同型号接收器，到手后按 6.5 节对码即可。"]}
+{"question": "A87 Pro 能改装成分离空格吗？", "reference_context": ["不可以。PCB 与定位板为标准 6.25U 单空格开孔，不支持分体空格改装。"]}
+{"question": "新买的 A87 Pro 开机 OLED 不亮怎么办？", "reference_context": ["键盘出厂默认电量约 50%。若 OLED 无法点亮，请先使用附赠线缆连接电脑充电 30 分钟后再试。"]}
+{"question": "A87 Pro 的 2.4G 接收器不用时收纳在哪里？", "reference_context": ["收纳 2.4G 接收器，仓盖磁吸开合"]}
+{"question": "A87 Pro 的包装清单里都有哪些东西？", "reference_context": ["USB-C to USB-A 编织线 | 1 | 长 1.5 m，磁环屏蔽", "替换轴体 | 3 | 山茶红轴，备用", "拔键器 | 1 | 不锈钢丝拔键器"]}
+{"question": "A87 Pro 雪山限定版比标准版多哪些赠品？", "reference_context": ["雪山限定版额外附赠：限定配色方向键与 Esc 键帽组（4 颗）、定制编织线（1.5 m，雪山配色）。"]}
+{"question": "A87 Pro 一共有哪几种配色版本？", "reference_context": ["A87 Pro 标准版 | 岩灰 | 铝合金（阳极氧化） | 首发配色", "A87 Pro 雪山限定版 | 月白 | 铝合金（阳极氧化） | 附赠限定键帽组", "A87 Pro 曜石版 | 曜石黑 | 铝合金（阳极氧化） | 黑色 PCB，配雪狐静音轴"]}
+{"question": "A87 Pro 的充电口在机身的什么位置？", "reference_context": ["USB-C 端口 | 顶部左端 | 有线连接与充电"]}
+{"question": "A87 Pro 的脚撑最高能把键盘抬到多少度？", "reference_context": ["一段脚撑 ×2 | 背面左右 | 抬升角度 6°", "二段脚撑 ×2 | 背面左右 | 在一段基础上叠加，抬升角度 10°"]}
+{"question": "A87 Pro 的电量百分比显示乱跳是怎么回事？", "reference_context": ["电量显示大幅跳动 | 电池校准漂移 | 将电量用至自动关机，再一次性充满校准"]}
+{"question": "A87 Pro 的宏功能会被游戏反作弊判定为外挂吗？", "reference_context": ["板载宏以标准 HID 键盘报文输出，与物理按键一致"]}
+{"question": "A87 Pro 的 CapsLock 可以改建成 Ctrl 吗？", "reference_context": ["CapsLock | 大小写切换 | Ctrl（可设为 CapsLock，见 11.4）"]}
+{"question": "A87 Pro 的空格键左右轻晃有旷量正常吗？", "reference_context": ["卫星轴大键允许存在轻微旷量（出厂控制在 0.2 mm 内）以保证顺滑度"]}
+{"question": "A87 Pro 支持 QMK 或者 VIA 改键吗？", "reference_context": []}
+{"question": "A87 Pro 有带数字小键盘的版本吗？", "reference_context": []}
+{"question": "PilKB 公司是哪一年成立的？", "reference_context": []}
+{"question": "A87 Pro 可以无线充电吗？", "reference_context": []}
+{"question": "A87 Pro 二手转卖大概能卖多少钱？", "reference_context": []}
+{"question": "A87 Pro 有配套的鼠标卖吗？", "reference_context": []}

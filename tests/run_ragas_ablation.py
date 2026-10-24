@@ -15,8 +15,7 @@ key 时 judge 初始化直接失败 (run_ragas_eval real 模式踩过的坑). �
 LangchainLLMWrapper(langchain_llm=llm_router.get_llm()), judge 与生成共用同一 provider.
 
 用法 (完整依赖环境 + .env 配好 LLM key):
-  cd backend
-  python -m tests.run_ragas_ablation --out ../data/eval/ablation_ragas.json
+  python -m tests.run_ragas_ablation --kb kb-eval --out data/eval/ablation_ragas.json
   # 先小跑: -n 10
 """
 from __future__ import annotations
@@ -32,7 +31,7 @@ from loguru import logger
 
 from tests import _ablation_common as ab
 
-_DATA = Path(__file__).resolve().parents[2] / "data"
+_DATA = Path(__file__).resolve().parents[1] / "data"
 
 
 def _dump_gen_cache(cache: dict, path: Path) -> None:
@@ -149,7 +148,7 @@ def _run_config(
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--kb", default="default", help="当前存了演示语料的 kb")
+    ap.add_argument("--kb", default="kb-eval", help="评测语料所在的 kb (需先建库并上传 data/eval/corpus/)")
     ap.add_argument("--dataset", type=Path, default=_DATA / "eval" / "recall_dataset.jsonl")
     ap.add_argument("--gen-cache", type=Path, default=_DATA / "eval" / "hyde_gen_cache.json")
     ap.add_argument("--single-path", choices=["vector", "bm25"], default="vector")

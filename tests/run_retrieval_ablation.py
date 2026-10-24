@@ -11,7 +11,7 @@
     (生产里改写是检索前的独立 LLM 步骤, 要量单独量, 别混进检索口径).
 
 数据 (全部现成, 不现场生成, 不烧 LLM):
-  - 问题与相关性锚点: data/eval/recall_dataset.jsonl (62 条, 57 条有
+  - 问题与相关性锚点: data/eval/recall_dataset.jsonl (130 条, 119 条有
     reference_context; 无答案样本不计入指标但照测延迟).
   - query 改写: data/eval/hyde_gen_cache.json, {问题: {"rewrite": [原句+3 变体],
     "hyde": 假设答案}}, 与数据集 62 条全对齐. --with-hyde 可把 HyDE 加进多 query.
@@ -27,11 +27,10 @@
        reference 片段; 单 reference 问题与文本口径基本等价.
 
 用法 (完整依赖环境: 真实 embedding + CrossEncoder; --judge llm 还需 LLM key):
-  cd backend
-  python -m tests.run_retrieval_ablation --out ../data/eval/ablation_retrieval.json
+  python -m tests.run_retrieval_ablation --kb kb-eval --out data/eval/ablation_retrieval.json
   # LLM 判定 + 随机抽样 60 条 (seed 固定, 抽样可复现):
-  python -m tests.run_retrieval_ablation --judge llm --sample 60 \
-      --out ../data/eval/ablation_retrieval_llm.json
+  python -m tests.run_retrieval_ablation --kb kb-eval --judge llm --sample 60 \
+      --out data/eval/ablation_retrieval_llm.json
   # 变体: --single-path bm25 | --with-hyde | -n 20 (先小跑验证)
 """
 from __future__ import annotations
@@ -49,7 +48,7 @@ from loguru import logger
 
 from tests import _ablation_common as ab
 
-_DATA = Path(__file__).resolve().parents[2] / "data"
+_DATA = Path(__file__).resolve().parents[1] / "data"
 KS = ("@3", "@5", "@10")
 
 
@@ -248,7 +247,7 @@ def _print_bootstrap(results: dict[str, dict]) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--kb", default="default", help="当前存了演示语料的 kb")
+    ap.add_argument("--kb", default="kb-eval", help="评测语料所在的 kb (需先建库并上传 data/eval/corpus/)")
     ap.add_argument("--dataset", type=Path, default=_DATA / "eval" / "recall_dataset.jsonl")
     ap.add_argument("--gen-cache", type=Path, default=_DATA / "eval" / "hyde_gen_cache.json")
     ap.add_argument("--single-path", choices=["vector", "bm25"], default="vector")

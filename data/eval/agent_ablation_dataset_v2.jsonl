@@ -1,0 +1,60 @@
+{"question": "标准版的保修期是多久？", "keywords": ["1", "年"], "type": "single-hop"}
+{"question": "擅自拆解 A87 Pro 键盘会有什么后果？", "keywords": ["保修", "失效"], "type": "single-hop"}
+{"question": "发票最晚什么时候申请？可以开哪几种类型？", "keywords": ["30", "普通", "专用"], "type": "single-hop"}
+{"question": "病假期间工资按什么比例发放？", "keywords": ["80%"], "type": "single-hop"}
+{"question": "买 20 个专业版账号，打完折扣总共多少钱？", "keywords": ["9折", "1280", "23040"], "type": "multi-hop+calc"}
+{"question": "专业版的保修期比企业版短多久？", "keywords": ["1", "年"], "type": "multi-hop"}
+{"question": "进阶培训一天的费用能买几个标准版账号？", "keywords": ["6000", "480", "12"], "type": "cross-doc+calc"}
+{"question": "企业版客户的退换货政策和物流时效分别是什么？", "keywords": ["30", "私有化", "1", "工作日"], "type": "multi-hop"}
+{"question": "渠道伙伴年度承诺 500 万以上的返点是百分之几？什么时候发放？", "keywords": ["18%", "一月"], "type": "multi-hop"}
+{"question": "休息日加班的调休折算比例是多少？调休多久内要休完？", "keywords": ["1:1.5", "3", "个月"], "type": "multi-hop"}
+{"question": "A87 Pro 内置电池的容量是多少？给它充电对电源适配器有什么要求？", "keywords": ["4000mAh", "5V"], "type": "multi-hop"}
+{"question": "雪山限定版比标准包装多赠送了什么？", "keywords": ["键帽", "编织线"], "type": "single-hop"}
+{"question": "企业版保修几年？", "keywords": ["3", "年"], "type": "single-hop"}
+{"question": "专业版每月 Agent 调用上限是多少？", "keywords": ["1万"], "type": "single-hop"}
+{"question": "哪个版本提供私有化部署和 SSO？", "keywords": ["企业版"], "type": "single-hop"}
+{"question": "标准版的单知识库容量上限是多少？", "keywords": ["5万"], "type": "single-hop"}
+{"question": "企业版的单集群可支撑多少切片？", "keywords": ["千万"], "type": "single-hop"}
+{"question": "客户主动删除的数据在回收站保留几天？", "keywords": ["7"], "type": "single-hop"}
+{"question": "增值税发票的税率是多少？", "keywords": ["6%"], "type": "single-hop"}
+{"question": "餐补标准是每人每天多少元？", "keywords": ["120"], "type": "single-hop"}
+{"question": "密码要求每多少天更换一次？", "keywords": ["90"], "type": "single-hop"}
+{"question": "单次文档上传大小上限是多少？", "keywords": ["25MB"], "type": "single-hop"}
+{"question": "A87 Pro 的整机重量是多少？", "keywords": ["1050"], "type": "single-hop"}
+{"question": "标准版和专业版分别支持多少个并发会话？", "keywords": ["3", "20"], "type": "multi-hop"}
+{"question": "标准版和专业版的单知识库协作者上限分别是多少？", "keywords": ["10", "50"], "type": "multi-hop"}
+{"question": "教育机构购买专业版能打几折？能和促销叠加吗？", "keywords": ["7折", "不"], "type": "multi-hop"}
+{"question": "渠道订单能参加终端促销吗？渠道返点比例是多少？", "keywords": ["不", "12%"], "type": "multi-hop"}
+{"question": "企业月结的注册资本门槛和账期分别是多少？", "keywords": ["500", "30"], "type": "multi-hop"}
+{"question": "月结逾期从第几天起收滞纳金？比例是多少？", "keywords": ["8", "万分之五"], "type": "multi-hop"}
+{"question": "电子发票和纸质专用发票的发送/寄出时限分别是多久？", "keywords": ["3", "7"], "type": "multi-hop"}
+{"question": "P0 和 P1 的响应时限分别是多少？", "keywords": ["15", "1"], "type": "multi-hop"}
+{"question": "标准版客户在非工作时间遇到 P0 故障，什么时候开始受理？", "keywords": ["次日", "9:00"], "type": "multi-hop"}
+{"question": "一线和二线城市的住宿标准分别是多少？", "keywords": ["600", "450"], "type": "multi-hop"}
+{"question": "年假满 1 年、3 年、5 年分别有多少天？", "keywords": ["5", "10", "15"], "type": "multi-hop"}
+{"question": "事假全年累计上限是多少天？超过会怎样？", "keywords": ["15", "自动离职"], "type": "multi-hop"}
+{"question": "法定节假日加班调休怎么折算？多久内要用完？", "keywords": ["1:2", "3"], "type": "multi-hop"}
+{"question": "采购 8 万元由谁审批？需要几家供应商报价？", "keywords": ["财务总监", "两"], "type": "multi-hop"}
+{"question": "供应商付款账期是多少天？预付款比例上限是多少？", "keywords": ["30", "30%"], "type": "multi-hop"}
+{"question": "L3 数据能否上传公共大模型 API？应走什么通道？", "keywords": ["不能", "私有化"], "type": "multi-hop"}
+{"question": "有线、2.4G 和蓝牙模式的轮询率分别是多少？", "keywords": ["1000", "125"], "type": "multi-hop"}
+{"question": "整机、电池、轴体键帽的保修期分别是多久？", "keywords": ["24", "12", "6"], "type": "multi-hop"}
+{"question": "热插拔轴座额定插拔多少次？兼容哪种结构的轴体？", "keywords": ["200", "MX"], "type": "multi-hop"}
+{"question": "充电时间约多久？充电温度范围是多少？", "keywords": ["4", "35"], "type": "multi-hop"}
+{"question": "深度休眠多久触发？唤醒延迟多少？", "keywords": ["30", "60"], "type": "multi-hop"}
+{"question": "默认灯效编号和默认亮度分别是多少？", "keywords": ["03", "4"], "type": "multi-hop"}
+{"question": "单宏最长多少步？宏板载容量多大？", "keywords": ["512", "64KB"], "type": "multi-hop"}
+{"question": "固件升级能否无线进行？升级前电量要求？", "keywords": ["不能", "30%"], "type": "multi-hop"}
+{"question": "雪山限定版和曜石版分别额外附赠什么？", "keywords": ["键帽", "编织线", "静音轴"], "type": "multi-hop"}
+{"question": "键盘进液后应阴干多久再通电？含糖饮料怎么处理？", "keywords": ["48", "售后"], "type": "multi-hop"}
+{"question": "买 20 个专业版账号在 6 月促销期购买，总价多少？", "keywords": ["21888", "95折"], "type": "multi-hop+calc"}
+{"question": "买 1 个标准版、1 个专业版、1 个企业版账号，一年共多少钱？", "keywords": ["480", "1280", "3680", "5440"], "type": "multi-hop+calc"}
+{"question": "一份 20 账号的专业版年度合同，使用 4 个月后解约，前 4 个月按原价结算要付多少？", "keywords": ["1280", "8533.33"], "type": "multi-hop+calc"}
+{"question": "上面那份合同剩余 8 个月按 9 折应退还多少？", "keywords": ["1152", "15360"], "type": "multi-hop+calc"}
+{"question": "20 个专业版账号在促销期的总价，相当于多少个标准版账号的年费？", "keywords": ["21888", "480", "45"], "type": "multi-hop+calc"}
+{"question": "买 10 个企业版账号，按 95 折，总价多少？", "keywords": ["3680", "95折", "34960"], "type": "multi-hop+calc"}
+{"question": "一名员工出差 3 天住二线城市，住宿费加餐补合计多少？", "keywords": ["450", "120", "1710"], "type": "multi-hop+calc"}
+{"question": "P0 故障超时 3 小时，按月度服务费的百分之多少补偿？", "keywords": ["5%", "15%"], "type": "multi-hop+calc"}
+{"question": "蓝牙关灯续航 200 小时，按每天使用 8 小时算，大约相当于多少个工作日？", "keywords": ["200", "8", "25"], "type": "multi-hop+calc"}
+{"question": "企业版软件保修期和 A87 Pro 整机保修期分别是多久？哪个更长？", "keywords": ["3", "24"], "type": "cross-doc"}
+{"question": "企业版软件和 A87 Pro 的保修期分别从什么时候起算？", "keywords": ["支付", "发票"], "type": "cross-doc"}

@@ -51,9 +51,8 @@
 
 用法
 ----
-    cd backend
     python -m tests.run_tokenizer_ablation
-    python -m tests.run_tokenizer_ablation --out ../data/eval/tokenizer_ablation.json
+    python -m tests.run_tokenizer_ablation --out data/eval/tokenizer_ablation.json
     python -m tests.run_tokenizer_ablation --sweep        # 扫切分粒度, 看 v1 的假象怎么来的
     python -m tests.run_tokenizer_ablation --chunk-size 300
 """

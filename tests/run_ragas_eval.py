@@ -262,7 +262,7 @@ def main() -> None:
     parser.add_argument("--kb", default="default")
     parser.add_argument(
         "--dataset", type=Path,
-        default=Path(__file__).parents[2] / "data" / "eval" / "qa.jsonl",
+        default=Path(__file__).parents[1] / "data" / "eval" / "qa.jsonl",
     )
     parser.add_argument("--mode", choices=["rag", "agent"], default="rag")
     parser.add_argument(

@@ -37,7 +37,7 @@
 
 - 两种问答模式：`rag`（检索结果直接拼 Prompt）与 `agent`（LangGraph ReAct 工具调用循环，模型自主组织检索词、结果不佳时换词重试）
 - Agent 工具集：`hybrid_search`（混合检索）、`calculator`、`current_date`；轮数预算耗尽自动用已收集证据兜底生成
-- 会话记忆：带 `session_id` 的请求按 `{user}:{session}` 隔离累积上下文（MemorySaver checkpoint）
+- 会话记忆：带 `session_id` 的请求按 `{user}:{session}` 隔离累积上下文；checkpoint 落盘 SQLite（AsyncSqliteSaver），后端重启后历史会话仍可继续
 - SSE 流式输出，回答附带 `[1] [2]` 编号的引用来源与得分
 
 **多知识库与权限**
@@ -81,7 +81,7 @@ Embedding 与重排均支持 `local`（本机加载模型）和 `api`（OpenAI �
 cp .env.example .env          # Windows: copy .env.example .env
 # .env.example 默认已带 PILKB_FAKE_LLM=1 / PILKB_FAKE_EMBEDDING=1
 uvicorn app.main:app --port 8000
-python run_demo.py            # 上传示例 Word + 单轮问答 + 流式问答
+python run_demo.py            # 上传示例文档 + 单轮问答 + 流式问答
 ```
 
 配好真实 API Key 后，把这两项改回 `0`，用 `python run_chat_real.py` 验证真实 LLM 效果。
@@ -180,17 +180,39 @@ Claude Desktop / Cursor 等客户端配置示例：
 
 ## 评估与消融
 
-```bash
-# RAGAS 四项指标 (faithfulness / answer_relevancy / context_precision / context_recall)
-python -m tests.run_ragas_eval --kb default \
-    --dataset data/eval/qa.jsonl \
-    --out data/eval/ragas_report.json --baseline-out data/eval/baseline.json
+评测资产随仓库分发（`data/eval/`，是 `data/` 忽略规则的唯一例外）：数据集、两份合成演示语料（`data/eval/corpus/`，机械键盘产品手册 + 企业知识库演示文档）与真实运行产出的结果 JSON。
 
-# react / router 双引擎消融对比
-python tests/run_agent_ablation.py
+**已入库结果**（均可按下方步骤复现，出真实分数需配 LLM key）：
+
+| 实验 | 关键结果 | 证据文件 |
+|---|---|---|
+| 三引擎编排消融（60 题，关键词覆盖率） | react 0.975 / router 0.922 / rag 0.925；react 较 rag **+5.0pt**（配对 bootstrap 95% CI [+0.8, +10.0]pt，显著），收益集中在 multi-hop 题（0.919→0.984，+6.5pt）；代价是端到端延迟 +2.1s（3021→5152ms，显著） | `data/eval/agent_ablation_v2.json` |
+| BM25 中文分词消融（62 题，Recall@5） | 汉字整段 R@5 0.28（词表交集 24%）→ 2-gram 0.98 → jieba 0.95（索引 token −34%、零结果率最低） | `data/eval/tokenizer_ablation.json` |
+| 检索路径消融（130 题，119 条计分） | 单路单 query → 双路多 query：R@5 0.807→0.840（配对 bootstrap 95% CI [+0.8, +6.7]pt，显著）、MRR@10 0.730→0.746，检索 P95 667→1247ms；LLM judge 60 题抽样方向一致（0.883→0.900） | `data/eval/ablation_retrieval.json` / `ablation_retrieval_llm.json` |
+| chunk 粒度消融（4 档 × 3 路径） | 混合检索 R@1 0.63（adaptive 5500，仅 2 chunks）→ 0.81（chunk 500，23 chunks），chunk 定标 500 | `data/eval/recall_baseline_bge_m3.json` |
+| 检索配置消融 × RAGAS（119 样本 × 2 配置） | faithfulness 0.885→0.889、context_precision 0.818→0.826（单路 → 多路查询；此消融只取 faithfulness / context_precision 两项） | `data/eval/ablation_ragas_summary.json` |
+
+> **结果出处**：`ablation_retrieval*.json` 与 `ablation_ragas_summary.json` 产出于 kb-demo（文件内 `kb` 字段可查）；`kb-eval` 是按下方步骤用同一份语料重建的评测库，复现数字允许小幅波动（检索延迟受网络与 API 环境影响更明显）。三引擎消融已在 kb-eval 重跑，对应 `agent_ablation_v2.json`。
+
+**复现步骤**：
+
+```bash
+# 1) 新建专用 kb (如 kb-eval), 仅上传 data/eval/corpus/ 两份语料
+#    (前端上传页或 POST /api/v1/documents/upload; 混入其他文档会改变检索环境)
+uvicorn app.main:app --port 8000
+
+# 2) 三引擎消融 (60 题, 分题型统计 + 以 rag 为基线的配对 bootstrap; 逐题串行保证延迟可比)
+python tests/run_agent_ablation.py --kb kb-eval
+
+# 3) 检索路径消融 (文本口径, 确定性匹配; 多 query 改写走 data/eval/hyde_gen_cache.json 回放, 不烧 LLM)
+python -m tests.run_retrieval_ablation --kb kb-eval \
+    --out data/eval/ablation_retrieval.json
+
+# 4) 生成侧 RAGAS 消融 (需 .env 配置 LLM key; judge 与生成共用同一 provider)
+python -m tests.run_ragas_ablation --kb kb-eval
 ```
 
-评估默认 `--llm-mode fake_llm`（无需 API key，验证链路通断）；`real_llm` 模式用 `.env` 配置的真实 provider 打分。
+检索路径消融（step 3）完全不依赖 LLM，分数确定性可复现；三引擎消融与 RAGAS 消融的生成、judge 阶段消耗真实 LLM 调用。`tests/run_ragas_eval.py`（`--llm-mode fake_llm`）用于在无 key 环境验证评估脚本链路通断，其输出不代表真实模型效果，故不入库。重跑产生的报告仍落在 `data/eval/` 下，属于运行产物不入库。
 
 ## 运行测试
 
@@ -214,7 +236,7 @@ PilKB/
 │   └── schemas/     # Pydantic 请求 / 响应模型
 ├── frontend/        # Next.js 前端 (chat / upload / sources / history)
 ├── tests/           # pytest 测试与评估脚本 (_fakes.py 提供全套假实现)
-├── data/            # 运行时数据: 向量库 / BM25 索引 / 上传文件 / SQLite (gitignore)
+├── data/            # 运行时数据 (gitignore); 例外: data/eval/ 评测数据集/语料/结果随仓库分发
 ├── Dockerfile
 ├── docker-compose.yml
 ├── run_demo.py      # 假 LLM 演示脚本

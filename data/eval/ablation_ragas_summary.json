@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-10-16T08:52:57.530681Z",
+  "kb": "kb-demo",
+  "dataset": "data/eval/recall_dataset.jsonl",
+  "with_hyde": false,
+  "note": "ground_truth = reference_context 拼接 (数据集无独立标准答案, 见脚本docstring 的口径说明); judge = llm_provider 同款模型 (LangchainLLM 接线); 检索阶段与 run_retrieval_ablation 同口径 (缓存回放改写).",
+  "results": {
+    "single-single": {
+      "config": {
+        "path": "vector",
+        "settings": {
+          "query_rewrite_enabled": false,
+          "hyde_query_enabled": false
+        }
+      },
+      "scores": {
+        "faithfulness": 0.8853428862010098,
+        "context_precision": 0.8175420167468086
+      },
+      "nan_metrics": [],
+      "n": 119
+    },
+    "dual-multi": {
+      "config": {
+        "path": "hybrid",
+        "settings": {
+          "query_rewrite_enabled": true,
+          "hyde_query_enabled": false
+        }
+      },
+      "scores": {
+        "faithfulness": 0.8886904056395581,
+        "context_precision": 0.825688608717818
+      },
+      "nan_metrics": [],
+      "n": 119
+    }
+  },
+  "summary_provenance": "由完整运行结果压缩而来: 逐题 samples 与 LLM 生成缓存 (gen_cache) 已剥离, 仅保留配置/得分/样本数; 指标数值未做任何修改。"
+}

@@ -22,7 +22,25 @@ build/
 !.env.example
 
 # 数据(运行时产生: 向量库/BM25索引/上传文档/对话历史/SQLite, 全部不入库)
-data/
+# 注意写成 data/* 而非 data/: 目录被整体排除时 git 不会下钻, 下面的 ! 例外永远不生效
+data/*
+# 例外: 评测资产随仓库分发 —— 数据集/演示语料是复现输入, 结果 JSON 是评测证据;
+# 报告重跑产生的其余输出仍落在 data/eval/ 下且不入库
+!data/eval/
+data/eval/*
+!data/eval/qa.jsonl
+!data/eval/agent_ablation_dataset_v2.jsonl
+!data/eval/recall_dataset.jsonl
+!data/eval/corpus/
+!data/eval/agent_ablation_v2.json
+!data/eval/tokenizer_ablation.json
+!data/eval/ablation_ragas_summary.json
+!data/eval/ablation_retrieval.json
+!data/eval/ablation_retrieval_llm.json
+!data/eval/recall_baseline_bge_m3.json
+# query 改写/LLM judge 回放缓存: 检索消融的复现输入 (回放不烧 LLM; judge 缓存跨运行复用)
+!data/eval/hyde_gen_cache.json
+!data/eval/llm_judge_cache.json
 
 # IDE
 .idea/

@@ -15,9 +15,8 @@ adaptive_chunk_size=5500 下只能切出 1 个 chunk, Recall@K 恒等于 1.0, �
   否则会把指标刷虚高.
 
 用法:
-  cd backend
   # 单配置
-  python -m tests.run_recall_eval --out ../data/eval/recall_baseline.json
+  python -m tests.run_recall_eval --out data/eval/recall_baseline.json
   # 对比多种切分粒度 (回答"切多细对召回最好")
   python -m tests.run_recall_eval --compare
 
