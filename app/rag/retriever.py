@@ -292,33 +292,46 @@ class HybridRetriever:
             父 chunk 位于文档首/尾时对应一侧不存在, 只补 1 个; 单 chunk 文档补 0 个.
           - `max_extra_per_doc` 用于进一步收紧 (0 = 放弃连坐). 取邻居的循环最多只有
             2 次迭代, 所以实际补入数不会超过 2.
-          - 兄弟 chunk 继承父 chunk 的 rrf_score (× 0.99), 使下游按分数排序时
-            (见 RerankOptimizer) 紧随父 chunk 之后. 注意返回列表本身是追加顺序,
-            不是按分数排好的.
+          - 兄弟 chunk 继承父 chunk 的 rrf_score (× 0.99), 并**直接插在父 chunk
+            之后**而非追加到末尾. 原因: 多路 query 时这些列表还会再过一次
+            rrf_fuse (见 pipeline), 而 rrf_fuse 只按列表位置计分 (1/(k+rank)),
+            不认存量 rrf_score —— 兄弟在末尾就会按末尾排名沉底, ×0.99 的继承分
+            被位置分覆盖, 连坐形同虚设; 插在父后, 位置与分数才都说"紧随父 chunk
+            之后" (reranker 降级按原顺序截断时同样受益).
         """
         if not fused:
             return fused
-        recalled_ids = {c["id"] for c in fused}
-        expanded: List[dict] = list(fused)
-        seen: set = set(recalled_ids)
 
         # 先收集要连坐的 (doc_id, chunk_index), 再一次扫描建索引 (O(N) 而非 O(max_docs x N)).
-        targets: List[tuple[str, int, float]] = []
+        # rrf_fuse 已按 id 去重, (doc_id, chunk_index) 不会撞键, 建成 dict 便于
+        # 边扫 fused 边查"自己是不是连坐目标".
+        targets: Dict[tuple[str, int], float] = {}
         for parent in fused[:max_docs]:
             md = parent.get("metadata", {}) or {}
             doc_id = md.get("doc_id")
             chunk_index = md.get("chunk_index")
             if not doc_id or not isinstance(chunk_index, int):
                 continue
-            targets.append((doc_id, chunk_index, parent.get("rrf_score", 0.0) or 0.0))
+            targets[(doc_id, chunk_index)] = parent.get("rrf_score", 0.0) or 0.0
         if not targets:
-            return expanded
+            return list(fused)
 
-        index = self._index_by_chunk_index({doc_id for doc_id, _, _ in targets})
-        for doc_id, chunk_index, parent_score in targets:
+        index = self._index_by_chunk_index({doc_id for doc_id, _ in targets})
+        # seen 预置全部已召回 id. 额度计的是"实际补进来的新 chunk 数": 已召回的
+        # 邻居跳过且不占额度 -- 先截断再过滤会让额度被已召回的 chunk 白白吃掉.
+        seen: set = {c["id"] for c in fused}
+        expanded: List[dict] = []
+        for c in fused:
+            expanded.append(c)
+            md = c.get("metadata", {}) or {}
+            doc_id = md.get("doc_id")
+            chunk_index = md.get("chunk_index")
+            if not doc_id or not isinstance(chunk_index, int):
+                continue
+            parent_score = targets.get((doc_id, chunk_index))
+            if parent_score is None:
+                continue
             bucket = index.get(doc_id, {})
-            # 额度计的是"实际补进来的新 chunk 数": 已召回的邻居跳过且不占额度 --
-            # 先截断再过滤会让额度被已召回的 chunk 白白吃掉.
             added = 0
             # 只取紧邻的前后各一个, 前 -> 后 (前一个缺失时自然落到后一个).
             for neighbor_index in (chunk_index - 1, chunk_index + 1):
@@ -328,7 +341,7 @@ class HybridRetriever:
                 if sibling is None or sibling["id"] in seen:
                     continue
                 sibling["rrf_score"] = parent_score * 0.99  # 紧随父 chunk 之后
-                expanded.append(sibling)
+                expanded.append(sibling)  # 插在父 chunk 之后, 理由见 docstring
                 seen.add(sibling["id"])
                 added += 1
         return expanded

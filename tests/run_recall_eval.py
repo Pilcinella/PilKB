@@ -35,9 +35,9 @@ from pathlib import Path
 
 from loguru import logger
 
-# 项目根 / data 目录
+# 项目根 / data 目录 (backend/ 拍平到根后, tests 的上级即项目根)
 _BACKEND = Path(__file__).resolve().parents[1]
-_DATA = _BACKEND.parent / "data"
+_DATA = _BACKEND / "data"
 
 
 def _load_corpus(path: Path) -> str:

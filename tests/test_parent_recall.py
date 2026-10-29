@@ -93,7 +93,8 @@ def test_parent_recall_skips_recalled_neighbor_without_using_budget():
     r = _make_retriever({"docA": 10})
     fused = _hit(r, ["docA_c5", "docA_c6"])
     ids = [c["id"] for c in r.expand_parent_recall(fused)]
-    assert ids == ["docA_c5", "docA_c6", "docA_c4", "docA_c7"]
+    # 兄弟插在各自父 chunk 之后 (c4 紧跟 c5, c7 紧跟 c6), 而不是垫在末尾
+    assert ids == ["docA_c5", "docA_c4", "docA_c6", "docA_c7"]
 
 
 # ----- 放弃召回 -----
@@ -136,3 +137,17 @@ def test_parent_recall_inherits_parent_score():
     sib = next(c for c in expanded if c["id"] == "docA_c6")
     assert abs(sib["rrf_score"] - 0.9 * 0.99) < 1e-9
     assert expanded[0]["id"] == "docA_c5"  # 父 chunk 仍排第一
+
+
+def test_parent_recall_inserts_sibling_after_parent_not_at_end():
+    """多路 query 时, 这些列表还要再过一次 rrf_fuse (pipeline), 而 rrf_fuse 只按
+    列表位置计分 (1/(k+rank)), 不认存量 rrf_score. 兄弟 chunk 若追加到列表末尾,
+    融合时按末尾排名沉底, ×0.99 的分数继承被位置分覆盖, 连坐形同虚设 —— 必须
+    插在父 chunk 之后."""
+    r = _make_retriever({"docA": 10, "docB": 10})
+    fused = _hit(r, ["docA_c5"], score=0.9) + _hit(r, ["docB_c2", "docB_c6"], score=0.5)
+    ids = [c["id"] for c in r.expand_parent_recall(fused)]
+    # 兄弟紧跟各自的父 chunk, 而不是垫在整个列表末尾
+    assert ids[:3] == ["docA_c5", "docA_c4", "docA_c6"]
+    assert ids[3:6] == ["docB_c2", "docB_c1", "docB_c3"]
+    assert ids[-1] != "docA_c6"
