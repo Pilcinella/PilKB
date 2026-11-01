@@ -186,7 +186,7 @@ Claude Desktop / Cursor 等客户端配置示例：
 
 | 实验 | 关键结果 | 证据文件 |
 |---|---|---|
-| 三引擎编排消融（60 题，关键词覆盖率） | react 0.975 / router 0.922 / rag 0.925；react 较 rag **+5.0pt**（配对 bootstrap 95% CI [+0.8, +10.0]pt，显著），收益集中在 multi-hop 题（0.919→0.984，+6.5pt）；代价是端到端延迟 +2.1s（3021→5152ms，显著） | `data/eval/agent_ablation_v2.json` |
+| 三引擎编排消融（60 题，关键词覆盖率） | react 0.969 / router 0.928 / rag 0.925；react 较 rag **+4.4pt**（配对 bootstrap 95% CI [+0.3, +9.4]pt，显著），收益集中在 multi-hop 题（0.919→0.984，+6.5pt）；代价是端到端延迟 +2.4s（2910→5314ms，显著） | `data/eval/agent_ablation_v2.json` |
 | BM25 中文分词消融（62 题，Recall@5） | 汉字整段 R@5 0.28（词表交集 24%）→ 2-gram 0.98 → jieba 0.95（索引 token −34%、零结果率最低） | `data/eval/tokenizer_ablation.json` |
 | 检索路径消融（130 题，119 条计分） | 单路单 query → 双路多 query：R@5 0.807→0.840（配对 bootstrap 95% CI [+0.8, +6.7]pt，显著）、MRR@10 0.730→0.746，检索 P95 667→1247ms；LLM judge 60 题抽样方向一致（0.883→0.900） | `data/eval/ablation_retrieval.json` / `ablation_retrieval_llm.json` |
 | chunk 粒度消融（4 档 × 3 路径） | 混合检索 R@1 0.63（adaptive 5500，仅 2 chunks）→ 0.81（chunk 500，23 chunks），chunk 定标 500 | `data/eval/recall_baseline_bge_m3.json` |
