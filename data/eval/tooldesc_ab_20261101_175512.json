@@ -1,0 +1,1980 @@
+{
+  "meta": {
+    "kb": "kb-eval",
+    "n": 60,
+    "dataset": "D:\\PythonProject\\PilKB\\data\\eval\\agent_ablation_dataset_v2.jsonl",
+    "provider": "deepseek",
+    "agent_max_steps": 4,
+    "timestamp": "2026-11-01 17:55:12",
+    "change": "format_hits 带 chunk_id + hybrid_search/read_chunk docstring 区分 [n] 与 chunk_id"
+  },
+  "stress": {
+    "snippet_chars": 300,
+    "old": {
+      "summary": {
+        "n": 60,
+        "coverage_mean": 0.8153,
+        "steps_mean": 2.02,
+        "searches_mean": 2.45,
+        "reads_mean": 0.57,
+        "reads_total": 34,
+        "bad_reads_total": 25,
+        "miss_reads_total": 34,
+        "questions_with_reads": 22,
+        "questions_with_miss": 22,
+        "errors": 0,
+        "latency_ms": {
+          "mean": 12236.5,
+          "p50": 10278.8,
+          "p95": 29741.9
+        }
+      },
+      "per_question": [
+        {
+          "question": "标准版的保修期是多久？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 1,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 29741.9,
+          "answer_head": "标准版的保修期为自购买之日起 1 年免费保修 [1]。",
+          "error": null
+        },
+        {
+          "question": "擅自拆解 A87 Pro 键盘会有什么后果？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 3,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 1,
+          "read_ids": [
+            "[3]"
+          ],
+          "missed_ids": [
+            "[3]"
+          ],
+          "latency_ms": 13814.8,
+          "answer_head": "擅自拆解 A87 Pro 键盘会导致以下后果：\n\n1. **保修失效**：键盘内部无用户可维护部件，擅自拆解将导致保修失效 [6]；保修条款也明确将\"擅自拆解外壳、拆卸 PCB、焊接改装（含更换轴座、",
+          "error": null
+        },
+        {
+          "question": "发票最晚什么时候申请？可以开哪几种类型？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 22309.8,
+          "answer_head": "发票需在订单完成后 30 天内申请开具，逾期不再补开 [2]。可开具的发票类型为：增值税普通发票（税率 6%）和增值税专用发票（税率 6%）[2]。",
+          "error": null
+        },
+        {
+          "question": "病假期间工资按什么比例发放？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 14884.5,
+          "answer_head": "病假期间工资按 80% 发放；全年累计病假超过 30 天的部分按 60% 发放。[2]",
+          "error": null
+        },
+        {
+          "question": "买 20 个专业版账号，打完折扣总共多少钱？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7546.6,
+          "answer_head": "买 20 个专业版账号，适用 9 折，单价 1280 × 0.9 = 1152 元，总价 1152 × 20 = 23040 元。若在 6 月或 11 月促销期购买，再叠加 95 折，总价为 2304",
+          "error": null
+        },
+        {
+          "question": "专业版的保修期比企业版短多久？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 1,
+          "miss_reads": 1,
+          "read_ids": [
+            "1"
+          ],
+          "missed_ids": [
+            "1"
+          ],
+          "latency_ms": 37089.7,
+          "answer_head": "专业版保修 2 年 [1][4]，企业版保修 3 年 [1]，因此专业版比企业版短 1 年。",
+          "error": null
+        },
+        {
+          "question": "进阶培训一天的费用能买几个标准版账号？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8808.4,
+          "answer_head": "根据检索结果，进阶培训按人天收费，标准为 6000 元/人天 [1]；标准版账号为 480 元/账号/年 [2]。\n\n计算：6000 ÷ 480 = 12.5，即进阶培训一天的费用可购买 12.5 个",
+          "error": null
+        },
+        {
+          "question": "企业版客户的退换货政策和物流时效分别是什么？",
+          "coverage": 1.0,
+          "steps": 3,
+          "searches": 3,
+          "reads": 1,
+          "bad_reads": 1,
+          "miss_reads": 1,
+          "read_ids": [
+            "3"
+          ],
+          "missed_ids": [
+            "3"
+          ],
+          "latency_ms": 33324.3,
+          "answer_head": "企业版客户的退换货政策：因涉及私有化部署与实施成本，不适用无理由退货；企业版客户可在 30 天内因质量问题申请更换部署方案或全额退款；超过 30 天但不足 90 天的，可申请按剩余月份比例退款，需扣除",
+          "error": null
+        },
+        {
+          "question": "渠道伙伴年度承诺 500 万以上的返点是百分之几？什么时候发放？",
+          "coverage": 1.0,
+          "steps": 3,
+          "searches": 3,
+          "reads": 1,
+          "bad_reads": 1,
+          "miss_reads": 1,
+          "read_ids": [
+            "3"
+          ],
+          "missed_ids": [
+            "3"
+          ],
+          "latency_ms": 12132.5,
+          "answer_head": "渠道伙伴年度承诺 500 万元以上的返点为 18% [3]。渠道返点在客户完成首年付款后结算，次年一月统一发放 [3]。",
+          "error": null
+        },
+        {
+          "question": "休息日加班的调休折算比例是多少？调休多久内要休完？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7802.4,
+          "answer_head": "休息日加班的调休折算比例为 1:1.5，调休需在 3 个月内使用完毕，过期作废。[1]",
+          "error": null
+        },
+        {
+          "question": "A87 Pro 内置电池的容量是多少？给它充电对电源适配器有什么要求？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 3,
+          "reads": 1,
+          "bad_reads": 1,
+          "miss_reads": 1,
+          "read_ids": [
+            "1"
+          ],
+          "missed_ids": [
+            "1"
+          ],
+          "latency_ms": 9608.1,
+          "answer_head": "A87 Pro 内置电池容量为 4000 mAh 锂聚合物电池（3.7 V，14.8 Wh）[9][8]。\n\n充电对电源适配器的要求：仅可使用输出规格为 5V/0.5A–2A 的标准 USB 电源适配",
+          "error": null
+        },
+        {
+          "question": "雪山限定版比标准包装多赠送了什么？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10913.7,
+          "answer_head": "雪山限定版比标准包装额外附赠：限定配色方向键与 Esc 键帽组（4 颗）、定制编织线（1.5 m，雪山配色）[2]。",
+          "error": null
+        },
+        {
+          "question": "企业版保修几年？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10209.3,
+          "answer_head": "企业版自购买之日起 3 年免费保修。[1]",
+          "error": null
+        },
+        {
+          "question": "专业版每月 Agent 调用上限是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 6758.2,
+          "answer_head": "专业版每月 Agent 调用上限为 1 万次。[1]",
+          "error": null
+        },
+        {
+          "question": "哪个版本提供私有化部署和 SSO？",
+          "coverage": 1.0,
+          "steps": 3,
+          "searches": 3,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 1,
+          "read_ids": [
+            "[3]"
+          ],
+          "missed_ids": [
+            "[3]"
+          ],
+          "latency_ms": 12840.9,
+          "answer_head": "根据检索结果，**企业版（Enterprise）**提供私有化部署和单点登录（SSO）集成。\n\n检索结果[3]显示，企业版\"额外提供私有化部署、单点登录（SSO）集成、审计日志导出、专属客户\"等能力；",
+          "error": null
+        },
+        {
+          "question": "标准版的单知识库容量上限是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8209.6,
+          "answer_head": "标准版的单知识库容量上限是 5 万条切片 [1]。",
+          "error": null
+        },
+        {
+          "question": "企业版的单集群可支撑多少切片？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 3,
+          "reads": 2,
+          "bad_reads": 2,
+          "miss_reads": 2,
+          "read_ids": [
+            "1",
+            "1"
+          ],
+          "missed_ids": [
+            "1",
+            "1"
+          ],
+          "latency_ms": 10193.1,
+          "answer_head": "未找到相关信息。\n\n检索结果中仅提到标准版单知识库容量上限为 5 万条切片、专业版为 50 万条切片 [1]，但未提及企业版的单集群切片容量。",
+          "error": null
+        },
+        {
+          "question": "客户主动删除的数据在回收站保留几天？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5997.0,
+          "answer_head": "客户主动删除的数据（含文档与知识库）在回收站保留 **7 天**，7 天后不可恢复，属于硬删除，不进备份。[1]",
+          "error": null
+        },
+        {
+          "question": "增值税发票的税率是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 1,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5200.4,
+          "answer_head": "增值税发票的税率为 6%（包括增值税普通发票和增值税专用发票）[1]。",
+          "error": null
+        },
+        {
+          "question": "餐补标准是每人每天多少元？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7477.5,
+          "answer_head": "餐补标准为出差期间每人每天 120 元，不需提供发票，按出差天数自动计算。[1]",
+          "error": null
+        },
+        {
+          "question": "密码要求每多少天更换一次？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 6211.8,
+          "answer_head": "密码要求每 90 天更换一次 [1]。",
+          "error": null
+        },
+        {
+          "question": "单次文档上传大小上限是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 6427.4,
+          "answer_head": "单次请求的文档上传大小上限为 25MB [1]。超过限制的请求会返回 413 状态码 [1][2]。",
+          "error": null
+        },
+        {
+          "question": "A87 Pro 的整机重量是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 1,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 4520.8,
+          "answer_head": "A87 Pro 的整机净重约为 1050 g（含电池）[1]。",
+          "error": null
+        },
+        {
+          "question": "标准版和专业版分别支持多少个并发会话？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7011.5,
+          "answer_head": "标准版支持 3 个并发会话，专业版支持 20 个并发会话。[1]",
+          "error": null
+        },
+        {
+          "question": "标准版和专业版的单知识库协作者上限分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8266.6,
+          "answer_head": "标准版单知识库协作者上限为 10 人，专业版为 50 人。[1]",
+          "error": null
+        },
+        {
+          "question": "教育机构购买专业版能打几折？能和促销叠加吗？",
+          "coverage": 0.0,
+          "steps": 3,
+          "searches": 4,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 1,
+          "read_ids": [
+            "[1]"
+          ],
+          "missed_ids": [
+            "[1]"
+          ],
+          "latency_ms": 16384.9,
+          "answer_head": "未找到相关信息。\n\n检索结果中仅说明了专业版的阶梯折扣规则（5-10 个账号 95 折、11-20 个 9 折等）以及促销期（6 月与 11 月）可在阶梯折扣基础上再叠加 95 折 [1][3]，但没",
+          "error": null
+        },
+        {
+          "question": "渠道订单能参加终端促销吗？渠道返点比例是多少？",
+          "coverage": 1.0,
+          "steps": 4,
+          "searches": 3,
+          "reads": 2,
+          "bad_reads": 2,
+          "miss_reads": 2,
+          "read_ids": [
+            "3",
+            "1"
+          ],
+          "missed_ids": [
+            "3",
+            "1"
+          ],
+          "latency_ms": 13808.5,
+          "answer_head": "渠道订单的促销参与规则：检索结果中仅说明「促销折扣与阶梯折扣可叠加，但与渠道返点不可同时享受」[1]，未明确说明渠道订单能否参加终端促销活动，因此该点未找到直接相关信息。\n\n渠道返点比例：渠道合作伙伴",
+          "error": null
+        },
+        {
+          "question": "企业月结的注册资本门槛和账期分别是多少？",
+          "coverage": 1.0,
+          "steps": 4,
+          "searches": 4,
+          "reads": 1,
+          "bad_reads": 1,
+          "miss_reads": 1,
+          "read_ids": [
+            "1"
+          ],
+          "missed_ids": [
+            "1"
+          ],
+          "latency_ms": 18765.4,
+          "answer_head": "企业月结的准入条件为注册资本 500 万元以上 [1]。账期方面，供应商付款账期统一为货到验收后 30 天 [3]。",
+          "error": null
+        },
+        {
+          "question": "月结逾期从第几天起收滞纳金？比例是多少？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 4,
+          "reads": 2,
+          "bad_reads": 2,
+          "miss_reads": 2,
+          "read_ids": [
+            "2",
+            "1"
+          ],
+          "missed_ids": [
+            "2",
+            "1"
+          ],
+          "latency_ms": 47104.3,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "电子发票和纸质专用发票的发送/寄出时限分别是多久？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5662.6,
+          "answer_head": "电子发票在申请后 3 个工作日内发送至指定邮箱；纸质专用发票在申请后 7 个工作日内寄出，邮寄费用由我方承担。[1]",
+          "error": null
+        },
+        {
+          "question": "P0 和 P1 的响应时限分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7889.9,
+          "answer_head": "P0（系统不可用）的响应时限为 15 分钟，P1（核心功能受损）的响应时限为 1 小时 [1]。",
+          "error": null
+        },
+        {
+          "question": "标准版客户在非工作时间遇到 P0 故障，什么时候开始受理？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 4,
+          "reads": 2,
+          "bad_reads": 2,
+          "miss_reads": 2,
+          "read_ids": [
+            "1",
+            "1"
+          ],
+          "missed_ids": [
+            "1",
+            "1"
+          ],
+          "latency_ms": 10817.8,
+          "answer_head": "未找到相关信息。\n\n检索结果中仅提到「只有企业版客户享有 P0 与 P1 的 7×24 受理；标准版与专业版的 P0 问题在工作日 9:」[1]，该句在“9:”处中断，未完整说明标准版 P0 问题在非",
+          "error": null
+        },
+        {
+          "question": "一线和二线城市的住宿标准分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 14781.6,
+          "answer_head": "一线城市住宿标准为 600 元 / 晚，二线城市为 450 元 / 晚。[1]",
+          "error": null
+        },
+        {
+          "question": "年假满 1 年、3 年、5 年分别有多少天？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 4,
+          "reads": 2,
+          "bad_reads": 2,
+          "miss_reads": 2,
+          "read_ids": [
+            "1",
+            "1"
+          ],
+          "missed_ids": [
+            "1",
+            "1"
+          ],
+          "latency_ms": 11613.1,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "事假全年累计上限是多少天？超过会怎样？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7573.8,
+          "answer_head": "事假全年累计不得超过 15 天，超过部分按自动离职处理。[1]",
+          "error": null
+        },
+        {
+          "question": "法定节假日加班调休怎么折算？多久内要用完？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7684.8,
+          "answer_head": "法定节假日加班按 1:2 折算调休，调休需在 3 个月内使用完毕，过期作废。[1]",
+          "error": null
+        },
+        {
+          "question": "采购 8 万元由谁审批？需要几家供应商报价？",
+          "coverage": 0.5,
+          "steps": 4,
+          "searches": 3,
+          "reads": 1,
+          "bad_reads": 1,
+          "miss_reads": 1,
+          "read_ids": [
+            "1"
+          ],
+          "missed_ids": [
+            "1"
+          ],
+          "latency_ms": 10905.8,
+          "answer_head": "采购 8 万元由**部门总监**审批（5000–50000 元由部门总监审批，50000–200000 元由财务总监审批——8 万元属于 50000–200000 元区间，应由财务总监审批）[1]。\n",
+          "error": null
+        },
+        {
+          "question": "供应商付款账期是多少天？预付款比例上限是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 6427.2,
+          "answer_head": "供应商付款账期统一为货到验收后 30 天，预付款比例不得超过合同金额的 30%。[1]",
+          "error": null
+        },
+        {
+          "question": "L3 数据能否上传公共大模型 API？应走什么通道？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 16651.0,
+          "answer_head": "未找到相关信息。\n\n说明：检索结果[1]中确实提到“L3 与 L4 数据禁止上传至任何外部服务，包括公共大模型 API。如需使用 AI 能力处理 L3 数据，必须走私有化部署通道”，但该片段属于信息安",
+          "error": null
+        },
+        {
+          "question": "有线、2.4G 和蓝牙模式的轮询率分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 21152.1,
+          "answer_head": "有线模式为 1000Hz，2.4G 模式为 1000Hz，蓝牙模式为 125Hz [1][4][8]。",
+          "error": null
+        },
+        {
+          "question": "整机、电池、轴体键帽的保修期分别是多久？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 1,
+          "miss_reads": 1,
+          "read_ids": [
+            "1"
+          ],
+          "missed_ids": [
+            "1"
+          ],
+          "latency_ms": 7464.9,
+          "answer_head": "根据检索结果中的保修条款 [1]：\n\n- **整机（PCB、主控、结构件）**：24 个月，自购机发票日期起算（无发票按出厂日期 + 30 天）[1]\n- **电池**：12 个月，起算日同上 [1]",
+          "error": null
+        },
+        {
+          "question": "热插拔轴座额定插拔多少次？兼容哪种结构的轴体？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8462.4,
+          "answer_head": "热插拔轴座额定插拔次数约为 200 次 [2]；兼容 MX 结构轴体（Cherry MX、Gateron、TTC、Kailh 等主流三脚/五脚轴）[2]。",
+          "error": null
+        },
+        {
+          "question": "充电时间约多久？充电温度范围是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5971.4,
+          "answer_head": "充电时间约 4 小时（5V/1A 适配器，关机充电）[3]；充电温度应保持在 0 ℃ – 35 ℃ 之间[1][2]。",
+          "error": null
+        },
+        {
+          "question": "深度休眠多久触发？唤醒延迟多少？",
+          "coverage": 1.0,
+          "steps": 4,
+          "searches": 4,
+          "reads": 2,
+          "bad_reads": 1,
+          "miss_reads": 2,
+          "read_ids": [
+            "[1]",
+            "1"
+          ],
+          "missed_ids": [
+            "[1]",
+            "1"
+          ],
+          "latency_ms": 10655.1,
+          "answer_head": "深度休眠的触发时间：默认 30 分钟无操作 [4]；在驱动「性能面板」中可选 15 / 30 / 60 / 120 分钟 / 从不（选「从不」即常开，会显著增加耗电）[2]。\n\n唤醒延迟：未找到具体数",
+          "error": null
+        },
+        {
+          "question": "默认灯效编号和默认亮度分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5154.5,
+          "answer_head": "默认灯效编号是 03（渐变循环 / 彩虹），默认亮度是 4 级（共 8 级）[4]。",
+          "error": null
+        },
+        {
+          "question": "单宏最长多少步？宏板载容量多大？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 3,
+          "reads": 2,
+          "bad_reads": 2,
+          "miss_reads": 2,
+          "read_ids": [
+            "1",
+            "1"
+          ],
+          "missed_ids": [
+            "1",
+            "1"
+          ],
+          "latency_ms": 11006.7,
+          "answer_head": "未找到相关信息。\n\n检索结果中虽涉及宏功能（如板载宏录制、宏回放模式、宏示例等）[1][4][9]，但均未提及单条宏的最长步数限制，也未提及宏的板载存储容量。",
+          "error": null
+        },
+        {
+          "question": "固件升级能否无线进行？升级前电量要求？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 5,
+          "reads": 3,
+          "bad_reads": 3,
+          "miss_reads": 3,
+          "read_ids": [
+            "1",
+            "1",
+            "4"
+          ],
+          "missed_ids": [
+            "1",
+            "1",
+            "4"
+          ],
+          "latency_ms": 12051.8,
+          "answer_head": "未找到相关信息。\n\n检索结果中虽包含固件升级章节（13.1–13.4），但其中仅提到升级前需使用 USB-C 线连接键盘、升级过程中请勿拔线，以及脱机救砖需插入 USB-C 线进入 Bootloade",
+          "error": null
+        },
+        {
+          "question": "雪山限定版和曜石版分别额外附赠什么？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 6466.5,
+          "answer_head": "雪山限定版额外附赠：限定配色方向键与 Esc 键帽组（4 颗）、定制编织线（1.5 m，雪山配色）；曜石版额外附赠：静音轴替换装（10 颗）。[2]",
+          "error": null
+        },
+        {
+          "question": "键盘进液后应阴干多久再通电？含糖饮料怎么处理？",
+          "coverage": 0.5,
+          "steps": 3,
+          "searches": 3,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 2,
+          "read_ids": [
+            "[2]",
+            "[1]"
+          ],
+          "missed_ids": [
+            "[2]",
+            "[1]"
+          ],
+          "latency_ms": 14832.8,
+          "answer_head": "根据检索结果，键盘进液后的处理建议如下：\n\n**阴干时间：**\n- 若液体不慎泼入，请立即断开有线连接/关闭无线电源开关，倒置键盘沥干液体，自然阴干**至少 48 小时**后再尝试通电 [2]。\n- ",
+          "error": null
+        },
+        {
+          "question": "买 20 个专业版账号在 6 月促销期购买，总价多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10348.2,
+          "answer_head": "买 20 个专业版账号在 6 月促销期购买，总价为 **21888 元**。\n\n计算过程：20 个账号适用 9 折，单价 1280 × 0.9 = 1152 元，总价 1152 × 20 = 2304",
+          "error": null
+        },
+        {
+          "question": "买 1 个标准版、1 个专业版、1 个企业版账号，一年共多少钱？",
+          "coverage": 0.75,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 9939.0,
+          "answer_head": "未找到相关信息。\n\n检索结果中虽有各版本单价（标准版 480 元/账号/年、专业版 1280 元/账号/年、企业版 3680 元/账号/年）[2]，但折扣规则按“单次合同的账号数量”计算，1-4 个账",
+          "error": null
+        },
+        {
+          "question": "一份 20 账号的专业版年度合同，使用 4 个月后解约，前 4 个月按原价结算要付多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 13146.2,
+          "answer_head": "按检索结果中的示例：20 个账号的专业版年度合同，使用 4 个月后解约，前 4 个月按原价 1280 元/账号结算 [3]。\n\n计算：1280 元/账号 × 20 账号 × 4/12 年 = **85",
+          "error": null
+        },
+        {
+          "question": "上面那份合同剩余 8 个月按 9 折应退还多少？",
+          "coverage": 0.5,
+          "steps": 3,
+          "searches": 2,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 2,
+          "read_ids": [
+            "evalce29709f",
+            "evalce29709f_5"
+          ],
+          "missed_ids": [
+            "evalce29709f",
+            "evalce29709f_5"
+          ],
+          "latency_ms": 11463.1,
+          "answer_head": "未找到相关信息。\n\n检索结果中虽然提到了“一份 20 账号的专业版年度合同，使用 4 个月后解约，前 4 个月按原价 1280 元 / 账号结算，剩余 8 个月按 9 折后的单价退还”[1]，但并未给",
+          "error": null
+        },
+        {
+          "question": "20 个专业版账号在促销期的总价，相当于多少个标准版账号的年费？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10038.9,
+          "answer_head": "根据检索结果，20 个专业版账号在促销期的总价为 21888 元 [3]。标准版单价为 480 元/账号/年 [1]。计算：21888 ÷ 480 = 45.6，即相当于约 45.6 个标准版账号的年",
+          "error": null
+        },
+        {
+          "question": "买 10 个企业版账号，按 95 折，总价多少？",
+          "coverage": 0.6666666666666666,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 9831.0,
+          "answer_head": "未找到相关信息。\n\n检索结果中企业版单价为 3680 元/账号/年 [2]，但折扣阶梯中 5-10 个账号对应的是 95 折 [2]，而 95 折属于阶梯折扣，并非用户所说的“按 95 折”这一独立条",
+          "error": null
+        },
+        {
+          "question": "一名员工出差 3 天住二线城市，住宿费加餐补合计多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 16376.9,
+          "answer_head": "根据差旅报销制度：二线城市住宿标准为 450 元/晚 [1]，出差 3 天即 3 晚，住宿费为 450 × 3 = 1350 元；餐补标准为每人每天 120 元 [1]，3 天餐补为 120 × 3 ",
+          "error": null
+        },
+        {
+          "question": "P0 故障超时 3 小时，按月度服务费的百分之多少补偿？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 3,
+          "reads": 2,
+          "bad_reads": 2,
+          "miss_reads": 2,
+          "read_ids": [
+            "1",
+            "1"
+          ],
+          "missed_ids": [
+            "1",
+            "1"
+          ],
+          "latency_ms": 15302.5,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "蓝牙关灯续航 200 小时，按每天使用 8 小时算，大约相当于多少个工作日？",
+          "coverage": 0.0,
+          "steps": 1,
+          "searches": 1,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 4150.8,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "企业版软件保修期和 A87 Pro 整机保修期分别是多久？哪个更长？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 4,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 11679.1,
+          "answer_head": "企业版软件保修期为自购买之日起 3 年 [1]；A87 Pro 整机（PCB、主控、结构件）保修期为 24 个月，自购机发票日期起算（无发票按出厂日期 + 30 天）[12]。两者相比，企业版软件保修",
+          "error": null
+        },
+        {
+          "question": "企业版软件和 A87 Pro 的保修期分别从什么时候起算？",
+          "coverage": 1.0,
+          "steps": 4,
+          "searches": 5,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 1,
+          "read_ids": [
+            "17.1"
+          ],
+          "missed_ids": [
+            "17.1"
+          ],
+          "latency_ms": 15326.8,
+          "answer_head": "企业版软件的保修期自订单支付完成之日起算（而非账号激活之日）[1]；A87 Pro 的整机保修期自购机发票日期起算，无发票时按出厂日期 + 30 天起算[12]。",
+          "error": null
+        }
+      ]
+    },
+    "new": {
+      "summary": {
+        "n": 60,
+        "coverage_mean": 0.8,
+        "steps_mean": 1.95,
+        "searches_mean": 2.3,
+        "reads_mean": 0.75,
+        "reads_total": 45,
+        "bad_reads_total": 0,
+        "miss_reads_total": 0,
+        "questions_with_reads": 27,
+        "questions_with_miss": 0,
+        "errors": 1,
+        "latency_ms": {
+          "mean": 10658.7,
+          "p50": 9977.8,
+          "p95": 20452.2
+        }
+      },
+      "per_question": [
+        {
+          "question": "标准版的保修期是多久？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10048.9,
+          "answer_head": "标准版的保修期为自购买之日起 1 年免费保修 [1]。",
+          "error": null
+        },
+        {
+          "question": "擅自拆解 A87 Pro 键盘会有什么后果？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c9"
+          ],
+          "missed_ids": [],
+          "latency_ms": 12629.6,
+          "answer_head": "擅自拆解 A87 Pro 键盘会导致保修失效。根据安全须知，键盘内部无用户可维护部件，擅自拆解将导致保修失效 [6]。此外，请勿拆卸、挤压、穿刺键盘外壳 [6]。",
+          "error": null
+        },
+        {
+          "question": "发票最晚什么时候申请？可以开哪几种类型？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 14831.5,
+          "answer_head": "发票需在订单完成后 30 天内申请开具，逾期不再补开 [2]。可开具的发票类型为：增值税普通发票（税率 6%）和增值税专用发票（税率 6%）[2]。",
+          "error": null
+        },
+        {
+          "question": "病假期间工资按什么比例发放？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5084.6,
+          "answer_head": "病假期间工资按 80% 发放；全年累计病假超过 30 天的部分按 60% 发放。[2]",
+          "error": null
+        },
+        {
+          "question": "买 20 个专业版账号，打完折扣总共多少钱？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8812.6,
+          "answer_head": "买 20 个专业版账号，打完折扣总共是 **23040 元**。\n\n计算依据：20 个账号适用 9 折，单价 1280 × 0.9 = 1152 元，总价 1152 × 20 = 23040 元 [3",
+          "error": null
+        },
+        {
+          "question": "专业版的保修期比企业版短多久？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10543.7,
+          "answer_head": "专业版保修 2 年 [1]，企业版保修 3 年 [2]，因此专业版比企业版短 1 年。",
+          "error": null
+        },
+        {
+          "question": "进阶培训一天的费用能买几个标准版账号？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8992.1,
+          "answer_head": "根据检索结果，进阶培训按人天收费，标准为 6000 元/人天 [1]；标准版账号价格为 480 元/账号/年 [2]。\n\n6000 ÷ 480 = 12.5，即进阶培训一天的费用可购买 12.5 个标",
+          "error": null
+        },
+        {
+          "question": "企业版客户的退换货政策和物流时效分别是什么？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c5",
+            "evalce29709f_c4"
+          ],
+          "missed_ids": [],
+          "latency_ms": 24806.8,
+          "answer_head": "企业版客户的退换货政策：因涉及私有化部署与实施成本，不适用无理由退货；企业版客户可在 30 天内因质量问题申请更换部署方案或全额退款；超过 30 天但不足 90 天的，可申请按剩余月份比例退款，需扣除",
+          "error": null
+        },
+        {
+          "question": "渠道伙伴年度承诺 500 万以上的返点是百分之几？什么时候发放？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c12"
+          ],
+          "missed_ids": [],
+          "latency_ms": 8799.2,
+          "answer_head": "渠道合作伙伴年度承诺 500 万元以上的，返点为 18% [3]。渠道返点在客户完成首年付款后结算，次年一月统一发放 [3]。",
+          "error": null
+        },
+        {
+          "question": "休息日加班的调休折算比例是多少？调休多久内要休完？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5934.6,
+          "answer_head": "休息日加班的调休折算比例为 1:1.5，调休需在 3 个月内使用完毕，过期作废。[1]",
+          "error": null
+        },
+        {
+          "question": "A87 Pro 内置电池的容量是多少？给它充电对电源适配器有什么要求？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c11"
+          ],
+          "missed_ids": [],
+          "latency_ms": 9854.2,
+          "answer_head": "A87 Pro 内置电池容量为 4000mAh 锂聚合物电池[3]。充电要求：仅可使用输出规格为 5V/0.5A–2A 的标准 USB 电源适配器或电脑 USB 端口充电；严禁使用输出电压超过 5.5",
+          "error": null
+        },
+        {
+          "question": "雪山限定版比标准包装多赠送了什么？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c14"
+          ],
+          "missed_ids": [],
+          "latency_ms": 8833.3,
+          "answer_head": "雪山限定版比标准包装额外附赠：限定配色方向键与 Esc 键帽组（4 颗）、定制编织线（1.5 m，雪山配色）[2]。",
+          "error": null
+        },
+        {
+          "question": "企业版保修几年？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8046.2,
+          "answer_head": "企业版自购买之日起 3 年免费保修 [1]。",
+          "error": null
+        },
+        {
+          "question": "专业版每月 Agent 调用上限是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 9444.8,
+          "answer_head": "专业版每月 Agent 调用上限为 1 万次。[1]",
+          "error": null
+        },
+        {
+          "question": "哪个版本提供私有化部署和 SSO？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c1"
+          ],
+          "missed_ids": [],
+          "latency_ms": 13752.8,
+          "answer_head": "根据检索结果，**企业版（Enterprise）**提供私有化部署和 SSO 集成。\n\n- 企业版“额外提供私有化部署、单点登录（SSO）集成、审计日志导出、专属客户……”[3]\n- “只有企业版提供",
+          "error": null
+        },
+        {
+          "question": "标准版的单知识库容量上限是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8530.0,
+          "answer_head": "标准版的单知识库容量上限是 5 万条切片。[1]",
+          "error": null
+        },
+        {
+          "question": "企业版的单集群可支撑多少切片？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 5,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c1",
+            "evalce29709f_c1"
+          ],
+          "missed_ids": [],
+          "latency_ms": 20452.2,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "客户主动删除的数据在回收站保留几天？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5631.0,
+          "answer_head": "客户主动删除的数据（含文档与知识库）在回收站保留 7 天，7 天后不可恢复 [1]。",
+          "error": null
+        },
+        {
+          "question": "增值税发票的税率是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 9906.6,
+          "answer_head": "增值税发票的税率为 6%（包括增值税普通发票和增值税专用发票）[1]。",
+          "error": null
+        },
+        {
+          "question": "餐补标准是每人每天多少元？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5650.6,
+          "answer_head": "餐补标准为出差期间每人每天 120 元，不需提供发票，按出差天数自动计算。[1]",
+          "error": null
+        },
+        {
+          "question": "密码要求每多少天更换一次？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 1,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 4481.6,
+          "answer_head": "根据检索结果，密码要求每 90 天更换一次 [1]。",
+          "error": null
+        },
+        {
+          "question": "单次文档上传大小上限是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5822.8,
+          "answer_head": "单次请求的文档上传大小上限为 25MB，超过限制的请求返回 413 [1]。",
+          "error": null
+        },
+        {
+          "question": "A87 Pro 的整机重量是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 1,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 4791.7,
+          "answer_head": "A87 Pro 的整机净重约为 1050 g（含电池）[1]。",
+          "error": null
+        },
+        {
+          "question": "标准版和专业版分别支持多少个并发会话？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c1"
+          ],
+          "missed_ids": [],
+          "latency_ms": 10293.2,
+          "answer_head": "标准版支持 3 个并发会话，专业版支持 20 个并发会话。[1]",
+          "error": null
+        },
+        {
+          "question": "标准版和专业版的单知识库协作者上限分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7072.1,
+          "answer_head": "标准版单知识库的协作者上限为 10 人，专业版为 50 人 [1]。",
+          "error": null
+        },
+        {
+          "question": "教育机构购买专业版能打几折？能和促销叠加吗？",
+          "coverage": 0.0,
+          "steps": 3,
+          "searches": 4,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c2"
+          ],
+          "missed_ids": [],
+          "latency_ms": 15400.2,
+          "answer_head": "未找到相关信息。\n\n检索结果中仅包含通用阶梯折扣规则（按账号数量 5–10 个 95 折、11–20 个 9 折等）以及促销期叠加 95 折的说明 [1][3]，但没有任何针对“教育机构”的专属折扣政",
+          "error": null
+        },
+        {
+          "question": "渠道订单能参加终端促销吗？渠道返点比例是多少？",
+          "coverage": 1.0,
+          "steps": 4,
+          "searches": 3,
+          "reads": 3,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c12",
+            "evalce29709f_c2",
+            "evalce29709f_c11"
+          ],
+          "missed_ids": [],
+          "latency_ms": 14709.5,
+          "answer_head": "渠道订单的促销与返点规则如下：\n\n**关于终端促销：** 年度促销活动期间（每年6月与11月），促销折扣可与阶梯折扣叠加，但**促销折扣与渠道返点不可同时享受**[1]。因此渠道订单若已享受渠道返点，",
+          "error": null
+        },
+        {
+          "question": "企业月结的注册资本门槛和账期分别是多少？",
+          "coverage": 1.0,
+          "steps": 0,
+          "searches": 0,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 33458.2,
+          "answer_head": "- 二线城市（省会城市及计划单列市）：48 小时内送达\n- 三线城市：72 小时内送达\n- 偏远地区（新疆、西藏、内蒙古部分地区、青海）：3 - 5 个工作日企业版客户享有专享物流通道，在上述时效基础",
+          "error": null
+        },
+        {
+          "question": "月结逾期从第几天起收滞纳金？比例是多少？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 5,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c5"
+          ],
+          "missed_ids": [],
+          "latency_ms": 14988.1,
+          "answer_head": "未找到相关信息。检索结果中仅提及企业月结的准入条件（注册资本 500 万元以上）[1]，但未涉及月结逾期滞纳金的起算天数及比例。",
+          "error": null
+        },
+        {
+          "question": "电子发票和纸质专用发票的发送/寄出时限分别是多久？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8124.7,
+          "answer_head": "电子发票在申请后 3 个工作日内发送至指定邮箱；纸质专用发票在申请后 7 个工作日内寄出，邮寄费用由我方承担。[1]",
+          "error": null
+        },
+        {
+          "question": "P0 和 P1 的响应时限分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5399.1,
+          "answer_head": "P0 的响应时限是 15 分钟，P1 的响应时限是 1 小时 [1]。",
+          "error": null
+        },
+        {
+          "question": "标准版客户在非工作时间遇到 P0 故障，什么时候开始受理？",
+          "coverage": 0.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c7",
+            "evalce29709f_c21"
+          ],
+          "missed_ids": [],
+          "latency_ms": 8929.4,
+          "answer_head": "未找到相关信息。\n\n检索结果中仅提到「只有企业版客户享有 P0 与 P1 的 7×24 受理；标准版与专业版的 P0 问题在工作日 9:」[1]，该句在“9:”处被截断，未完整说明标准版 P0 问题在",
+          "error": null
+        },
+        {
+          "question": "一线和二线城市的住宿标准分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8095.7,
+          "answer_head": "一线城市住宿标准为 600 元/晚，二线城市为 450 元/晚。[1]",
+          "error": null
+        },
+        {
+          "question": "年假满 1 年、3 年、5 年分别有多少天？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 2,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c9",
+            "evalce29709f_c8"
+          ],
+          "missed_ids": [],
+          "latency_ms": 9000.8,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "事假全年累计上限是多少天？超过会怎样？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 5514.8,
+          "answer_head": "事假全年累计不得超过 15 天，超过部分按自动离职处理。[1]",
+          "error": null
+        },
+        {
+          "question": "法定节假日加班调休怎么折算？多久内要用完？",
+          "coverage": 0.0,
+          "steps": 0,
+          "searches": 0,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 1148.1,
+          "answer_head": "",
+          "error": "RemoteProtocolError('peer closed connection without sending complete message body (incomplete chunked read)')"
+        },
+        {
+          "question": "采购 8 万元由谁审批？需要几家供应商报价？",
+          "coverage": 0.5,
+          "steps": 4,
+          "searches": 4,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c9",
+            "evalce29709f_c10"
+          ],
+          "missed_ids": [],
+          "latency_ms": 10715.5,
+          "answer_head": "采购 8 万元由**部门总监**审批（5000 - 50000 元由部门总监审批，50000 - 200000 元由财务总监审批，8 万元属于 50000 - 200000 元区间，应由财务总监审批）",
+          "error": null
+        },
+        {
+          "question": "供应商付款账期是多少天？预付款比例上限是多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c10"
+          ],
+          "missed_ids": [],
+          "latency_ms": 6456.1,
+          "answer_head": "供应商付款账期统一为货到验收后 30 天，预付款比例不得超过合同金额的 30%。[1]",
+          "error": null
+        },
+        {
+          "question": "L3 数据能否上传公共大模型 API？应走什么通道？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c10"
+          ],
+          "missed_ids": [],
+          "latency_ms": 27802.4,
+          "answer_head": "不能。L3 与 L4 数据禁止上传至任何外部服务，包括公共大模型 API；如需使用 AI 能力处理 L3 数据，必须走私有化部署通道。[1]",
+          "error": null
+        },
+        {
+          "question": "有线、2.4G 和蓝牙模式的轮询率分别是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 8440.2,
+          "answer_head": "有线与 2.4G 模式均为 1000Hz 轮询率，蓝牙模式为 125Hz [1][5][8]。",
+          "error": null
+        },
+        {
+          "question": "整机、电池、轴体键帽的保修期分别是多久？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c70"
+          ],
+          "missed_ids": [],
+          "latency_ms": 10096.7,
+          "answer_head": "根据检索结果，PilKB 键盘的保修期限如下：\n\n- **整机（PCB、主控、结构件）**：24 个月，自购机发票日期起算（无发票按出厂日期 + 30 天）[1]\n- **电池**：12 个月，起算日",
+          "error": null
+        },
+        {
+          "question": "热插拔轴座额定插拔多少次？兼容哪种结构的轴体？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 7593.4,
+          "answer_head": "热插拔轴座额定插拔次数约为 200 次 [2]；兼容 MX 结构轴体（Cherry MX、Gateron、TTC、Kailh 等主流三脚 / 五脚轴）[2]。",
+          "error": null
+        },
+        {
+          "question": "充电时间约多久？充电温度范围是多少？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 6361.6,
+          "answer_head": "充电时间约 4 小时（5V/1A 适配器，关机充电）[1]；充电温度范围为 0 ℃ – 35 ℃ [6][7]。",
+          "error": null
+        },
+        {
+          "question": "深度休眠多久触发？唤醒延迟多少？",
+          "coverage": 1.0,
+          "steps": 4,
+          "searches": 4,
+          "reads": 4,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c43",
+            "evalaf1f86c8_c16",
+            "evalaf1f86c8_c17",
+            "evalaf1f86c8_c44"
+          ],
+          "missed_ids": [],
+          "latency_ms": 14087.2,
+          "answer_head": "深度休眠的触发时间：默认 30 分钟无操作 [5]；可在驱动“性能面板”中设置为 15 / 30 / 60 / 120 分钟或“从不”（从不 = 常开，将显著耗电）[2]。\n\n唤醒延迟：未找到相关信息",
+          "error": null
+        },
+        {
+          "question": "默认灯效编号和默认亮度分别是多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c39"
+          ],
+          "missed_ids": [],
+          "latency_ms": 7815.1,
+          "answer_head": "默认灯效编号是 03（渐变循环 / 彩虹），默认亮度是 4 级（共 8 级）。[4]",
+          "error": null
+        },
+        {
+          "question": "单宏最长多少步？宏板载容量多大？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 5,
+          "reads": 3,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c39",
+            "evalaf1f86c8_c40",
+            "evalaf1f86c8_c39"
+          ],
+          "missed_ids": [],
+          "latency_ms": 12125.1,
+          "answer_head": "未找到相关信息。\n\n检索结果中提到了宏录制功能（如 [1] 提到\"依次按下要录制的按键序列（最多\"但内容被截断），以及宏回放模式、宏示例、宏槽位 M1–M8 等内容 [4][10]，但没有任何段落明确",
+          "error": null
+        },
+        {
+          "question": "固件升级能否无线进行？升级前电量要求？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 5,
+          "reads": 3,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c51",
+            "evalaf1f86c8_c52",
+            "evalaf1f86c8_c51"
+          ],
+          "missed_ids": [],
+          "latency_ms": 12311.1,
+          "answer_head": "未找到相关信息。\n\n检索结果中第13章固件升级部分仅提到通过 USB-C 线连接、使用驱动升级以及脱机救砖流程 [1][2][3]，但未明确说明固件升级是否支持无线进行，也未提及升级前的电量要求。",
+          "error": null
+        },
+        {
+          "question": "雪山限定版和曜石版分别额外附赠什么？",
+          "coverage": 1.0,
+          "steps": 1,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 6350.2,
+          "answer_head": "雪山限定版额外附赠：限定配色方向键与 Esc 键帽组（4 颗）、定制编织线（1.5 m，雪山配色）；曜石版额外附赠：静音轴替换装（10 颗）。[2]",
+          "error": null
+        },
+        {
+          "question": "键盘进液后应阴干多久再通电？含糖饮料怎么处理？",
+          "coverage": 0.5,
+          "steps": 2,
+          "searches": 2,
+          "reads": 2,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c9",
+            "evalaf1f86c8_c69"
+          ],
+          "missed_ids": [],
+          "latency_ms": 12535.2,
+          "answer_head": "键盘进液后，应**立即断开有线连接 / 关闭无线电源开关，倒置键盘沥干液体，自然阴干至少 48 小时后再尝试通电** [1]。若泼入的是含糖饮料，含糖饮料干涸后会腐蚀触点并使轴体发黏，**强烈建议直接",
+          "error": null
+        },
+        {
+          "question": "买 20 个专业版账号在 6 月促销期购买，总价多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10397.5,
+          "answer_head": "买 20 个专业版账号在 6 月促销期购买，总价为 **21888 元**。\n\n计算过程：20 个账号适用 9 折，单价 1280 × 0.9 = 1152 元，总价 1152 × 20 = 2304",
+          "error": null
+        },
+        {
+          "question": "买 1 个标准版、1 个专业版、1 个企业版账号，一年共多少钱？",
+          "coverage": 1.0,
+          "steps": 3,
+          "searches": 1,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c2"
+          ],
+          "missed_ids": [],
+          "latency_ms": 10343.7,
+          "answer_head": "根据检索结果中的定价信息 [2]：\n\n- 标准版：480 元 / 账号 / 年\n- 专业版：1280 元 / 账号 / 年\n- 企业版：3680 元 / 账号 / 年\n\n各买 1 个账号，合计：480",
+          "error": null
+        },
+        {
+          "question": "一份 20 账号的专业版年度合同，使用 4 个月后解约，前 4 个月按原价结算要付多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 12543.3,
+          "answer_head": "前 4 个月按原价结算的金额为：1280 元/账号 × 20 账号 ÷ 12 个月 × 4 个月 = **8533.33 元**。\n\n依据：年度合同中途解约时，已使用月份按原价（不享受折扣）结算 [2",
+          "error": null
+        },
+        {
+          "question": "上面那份合同剩余 8 个月按 9 折应退还多少？",
+          "coverage": 0.0,
+          "steps": 3,
+          "searches": 1,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c4"
+          ],
+          "missed_ids": [],
+          "latency_ms": 10770.6,
+          "answer_head": "未找到相关信息。\n\n检索结果中虽然提到了“一份 20 账号的专业版年度合同，使用 4 个月后解约，前 4 个月按原价 1280 元 / 账号结算，剩余 8 个月按 9 折后的单价退还”[2]，但并未给",
+          "error": null
+        },
+        {
+          "question": "20 个专业版账号在促销期的总价，相当于多少个标准版账号的年费？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 10331.3,
+          "answer_head": "根据检索结果，20 个专业版账号在促销期的总价为 21888 元 [3]。标准版单价为 480 元/账号/年 [1]。计算：21888 ÷ 480 = 45.6，即相当于 45.6 个标准版账号的年费",
+          "error": null
+        },
+        {
+          "question": "买 10 个企业版账号，按 95 折，总价多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 11704.8,
+          "answer_head": "未找到相关信息。\n\n检索结果中企业版单价为 3680 元/账号/年 [2]，但折扣阶梯中 5-10 个账号为 95 折 [2]，而 95 折属于阶梯折扣，并非用户所说的“按 95 折”之外的额外条件；",
+          "error": null
+        },
+        {
+          "question": "一名员工出差 3 天住二线城市，住宿费加餐补合计多少？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 2,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 11802.8,
+          "answer_head": "根据差旅报销制度：二线城市住宿标准为 450 元/晚[1]，餐补为每人每天 120 元[1]。\n\n出差 3 天住二线城市：\n- 住宿费：450 元/晚 × 2 晚（3 天出差通常住宿 2 晚）= 90",
+          "error": null
+        },
+        {
+          "question": "P0 故障超时 3 小时，按月度服务费的百分之多少补偿？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 4,
+          "reads": 4,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalce29709f_c7",
+            "evalce29709f_c8",
+            "evalce29709f_c21",
+            "evalce29709f_c21"
+          ],
+          "missed_ids": [],
+          "latency_ms": 15567.5,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "蓝牙关灯续航 200 小时，按每天使用 8 小时算，大约相当于多少个工作日？",
+          "coverage": 0.0,
+          "steps": 4,
+          "searches": 3,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c38"
+          ],
+          "missed_ids": [],
+          "latency_ms": 10080.5,
+          "answer_head": "未找到相关信息。",
+          "error": null
+        },
+        {
+          "question": "企业版软件保修期和 A87 Pro 整机保修期分别是多久？哪个更长？",
+          "coverage": 1.0,
+          "steps": 2,
+          "searches": 4,
+          "reads": 0,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [],
+          "missed_ids": [],
+          "latency_ms": 12284.7,
+          "answer_head": "企业版软件保修期为自购买之日起 3 年 [1]；A87 Pro 整机保修期为 24 个月，自购机发票日期起算（无发票按出厂日期 + 30 天）[12]。两者相比，企业版软件保修期（3 年）更长 [1]",
+          "error": null
+        },
+        {
+          "question": "企业版软件和 A87 Pro 的保修期分别从什么时候起算？",
+          "coverage": 1.0,
+          "steps": 3,
+          "searches": 4,
+          "reads": 1,
+          "bad_reads": 0,
+          "miss_reads": 0,
+          "read_ids": [
+            "evalaf1f86c8_c70"
+          ],
+          "missed_ids": [],
+          "latency_ms": 13189.2,
+          "answer_head": "企业版软件的保修期自订单支付完成之日起算（而非账号激活之日）[1]；A87 Pro 的保修期自购机发票日期起算，无发票则按出厂日期 + 30 天计算[14]。",
+          "error": null
+        }
+      ]
+    },
+    "paired": {
+      "coverage": {
+        "delta": -0.0153,
+        "ci": [
+          -0.0583,
+          0.0167
+        ],
+        "significant": false
+      },
+      "steps": {
+        "delta": -0.0667,
+        "ci": [
+          -0.2833,
+          0.1333
+        ],
+        "significant": false
+      },
+      "searches": {
+        "delta": -0.15,
+        "ci": [
+          -0.4,
+          0.0833
+        ],
+        "significant": false
+      },
+      "reads": {
+        "delta": 0.1833,
+        "ci": [
+          0.0333,
+          0.3333
+        ],
+        "significant": true
+      },
+      "bad_reads": {
+        "delta": -0.4167,
+        "ci": [
+          -0.6167,
+          -0.2333
+        ],
+        "significant": true
+      },
+      "miss_reads": {
+        "delta": -0.5667,
+        "ci": [
+          -0.7833,
+          -0.3667
+        ],
+        "significant": true
+      },
+      "latency_ms": {
+        "delta": -1577.8533,
+        "ci": [
+          -3487.8933,
+          94.1933
+        ],
+        "significant": false
+      }
+    }
+  }
+}

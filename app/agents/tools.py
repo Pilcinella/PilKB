@@ -52,6 +52,7 @@ def format_hits(hits: List[dict]) -> str:
     Agent 链路被静默丢掉. 与 RAG 主链路共用同一个配置, 两条路径看到的上下文
     一样长 —— 否则会出现"同一份文档, RAG 答得出来、Agent 答不出来".
 
+
     注意: 这里的 [n] 编号只在**单次调用内**有效; compose 节点会用全局合并后的
     sources 重新编号, 模型侧的编号不会泄漏到最终答案。
     """
@@ -61,7 +62,9 @@ def format_hits(hits: List[dict]) -> str:
         doc = r.get("document", "")
         snippet = doc[:limit].replace("\n", " ")
         score = r.get("rerank_score", 0)
-        lines.append("[" + str(i) + "] (score=" + format(score, ".3f") + ") " + snippet)
+        # r.get("id", "") 的括号不能省: "..." + r.get("id") or "" 会被解析成
+        # ("..."+id) or "" —— id 非空时 score 与正文被 or 整段丢弃。
+        lines.append("[" + str(i) + "] (chunk_id=" + r.get("id", "") + ") (score=" + format(score, ".3f") + ") " + snippet)
     return "\n".join(lines)
 
 
@@ -208,19 +211,19 @@ def build_tools(kb_id="default"):
 
     @tool
     def hybrid_search(query: str, top_k: int = 5) -> str:
-        "从企业知识库混合检索（BM25+向量+RRF 重排）。自行组织检索词, 不要照抄用户原话（口语/指代需展开）；结果不相关时换关键词重试。返回 [n] (score=..) 正文 格式的候选。"
+        "从企业知识库混合检索（BM25+向量+RRF 重排）。自行组织检索词, 不要照抄用户原话（口语/指代需展开）；结果不相关时换关键词重试。返回多行候选, 每行格式为 [n] (chunk_id=xxx_x) (score=x.xxx) 正文摘要。注意: [n] 仅是本次返回内的展示序号, 不是任何工具的参数, 检索结果每行携带 chunk_id，需要完整原文/上下文时用它调 read_chunk/read_parent"
         obs, _ = HANDLERS["hybrid_search"]({"query": query, "top_k": top_k}, kb_id)
         return obs
 
     @tool
     def read_chunk(chunk_id: str) -> str:
-        "按 chunk_id 读取一条检索结果的完整原文。"
+        "按 chunk_id 读取一条检索结果的完整原文。chunk_id 是知识库内部的完整标识, 不是 hybrid_search 返回中的 [n] 展示序号, 也不是纯数字。"
         obs, _ = HANDLERS["read_chunk"]({"chunk_id": chunk_id}, kb_id)
         return obs
 
     @tool
     def read_parent(chunk_id: str) -> str:
-        "读取某 chunk 及其在原文档中紧邻的前后各一个 chunk, 补全被切断的上下文。"
+        "读取某 chunk 及其在原文档中紧邻的前后各一个 chunk, 补全被切断的上下文。chunk_id 是知识库内部的完整标识, 不是 hybrid_search 返回中的 [n] 展示序号, 也不是纯数字。"
         obs, _ = HANDLERS["read_parent"]({"chunk_id": chunk_id}, kb_id)
         return obs
 

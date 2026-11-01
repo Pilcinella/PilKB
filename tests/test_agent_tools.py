@@ -72,7 +72,8 @@ def test_hybrid_search_respects_configured_limit(_patch_stores, monkeypatch):
     out = _run(doc)
     assert "乙" in out, "配置放宽后应能看到第 1200 字符处的内容"
     # 1200 之后的第二段确实不该出现, 证明上限确实生效 (而非干脆不截断)。
-    body = out.split(") ", 1)[-1]
+    # 行格式是 "[1] (chunk_id=..) (score=..) 正文", 要跳过两个 ") " 才是正文。
+    body = out.split(") ", 2)[-1]
     assert len(body) == 1200
 
     monkeypatch.setattr(settings, "context_snippet_chars", 500, raising=False)
@@ -85,6 +86,9 @@ def test_hybrid_search_outputs_index_and_score(_patch_stores):
     out = _run("简短文档内容。")
     assert out.startswith("[1] ")
     assert "score=" in out
+    # 每行必须携带 chunk_id: 它是 read_chunk/read_parent 的取数键,
+    # [n] 只是展示序号 (工具描述优化 A/B 的契约, 见 tests/run_tooldesc_ab.py)。
+    assert "chunk_id=" in out
 
 
 def test_hybrid_search_empty_corpus(_patch_stores):
